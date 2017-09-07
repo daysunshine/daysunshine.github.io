@@ -10,10 +10,10 @@ gems: [jekyll-paginate]
 permalink:        /blog/:year/:month/:day/:title
 
 # Setup
-title:            '刀剑尚未备好，转身已是江湖'
+title:            'Day Sun Shine'
 tagline:          'A Metro theme for Jekyll'
-description:      'xiaoshuaigege blog'
-url:              'https://xiaoshuaigege.github.io'
+description:      'My blog'
+url:              'https://daysunshine.github.io'
 baseurl:          ''
 
 # Navigation
@@ -33,7 +33,7 @@ navigation:
 
 
 # Author Details
-author:         'xiaoshuaigege'
+author:         'mengxue'
 # 支持中文编码
 encoding: 'utf-8'
 
@@ -42,7 +42,7 @@ dribbble:
 email:
 facebook:       ''
 flickr:
-github:         'https://github.com/xiaoshuaigege'
+github:         'https://github.com/daysunshine'
 gplus:          ''
 instagram:
 pinterest:
