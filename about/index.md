@@ -1,12 +1,11 @@
 ---
 layout: page
-title: Hi, I am Abdel Raoof Olakara
+title: Hi, I am xiaoshuaigege
 description: About Me page of Abdel Raoof
 theme: purple
 ---
 
-I am a web focused developer mostly working using Microsoft .Net technologies. Occasionally, I end up working on non web related projects. I am based in Abu Dhabi, United Arab Emirates and work for C4 Advanced Solution as Application Developer.
-This is my personal website and blog where I put down my thoughts, solutions to problems and learning notes.
+一个文艺闷骚的程序猿，致力于开发好多年。主要进行JAVA,ANDROID,KOTLIN,LINUX,等技术的学习使用。
 
 ## Stack Overflow
 
@@ -19,20 +18,17 @@ Stackoverflow is a online community I hang around a lot during my free time. You
 
 ## About this Site
 
-This is a static site powered by Jekyll. The design was done by me and the theme is freely available on [Github](https://github.com/olakara/JekyllMetro). I have used Bootstrap, jQuery, icons from Metro Studio of Syncfusion and Github for hosting the site.
+这是一个我的个人博客网站，我会不定期的在这里发表一些技术文章，欢迎大家与我交流，一起讨论学习.
 
-Technicals apart, this is my personal site where I plan to pen down my thoughts, technical experiences that I would like to share. But, the content and opnion that you see here are personal and not related to companies / clients i work with. And regarding the code you see there.. you may use it as per your discretion.
+## About the blog
 
-## About this Theme
+本网站致力于优秀的博客分享，会不定期的修改维护博客中的内容.
 
-Jekyll Metro is the result of wanting a clean and new theme for my personal site. I was initially inspired by the [Hyde theme](https://github.com/poole/hyde). but soon I was googling to see if there are any Metro inspired theme available.
-Since, I couldn't find one, I decided to built one for myself. One of the main goal of building my own theme was to have a modern responsive theme that looks good on mobile, tablet and desktop.
 
-You are free to use or fork this theme. And any contribution to fixes of issues are welcome.
 
 ## Contact Me
 
-For short messages and quick replies, you can contact me via [Twitter](http://twitter.com/olakara) For anything longer feel free to use the comments section below and I'll reply you by email.
+等网站稍微成熟之后，我会在这里贴上我的联系方式，包括，邮箱，微信等，敬请期待.
 
 ### Comments:
 

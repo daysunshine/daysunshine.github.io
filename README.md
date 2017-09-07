@@ -1,3 +1,8 @@
+# xianshuagege的个人博客主页
+下面的英文是我使用的Jekyll主题的相关介绍，以及一些原作者的基本信息。关于个人的详细信息，以后会慢慢完善。敬请关注。
+
+
+
 # Jekyll Metro
 
 Jekyll Metro is a metro inspired theme for [Jekyll](http://jekyllrb.com).
