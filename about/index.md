@@ -1,11 +1,10 @@
 ---
 layout: page
-title: Hi, I am xiaoshuaigege
-description: About Me page of Abdel Raoof
+title: Myself
+description: 
 theme: purple
 ---
 
-一个文艺闷骚的程序猿，致力于开发好多年。主要进行JAVA,ANDROID,KOTLIN,LINUX,等技术的学习使用。
 
 ## Stack Overflow
 
@@ -18,17 +17,17 @@ Stackoverflow is a online community I hang around a lot during my free time. You
 
 ## About this Site
 
-这是一个我的个人博客网站，我会不定期的在这里发表一些技术文章，欢迎大家与我交流，一起讨论学习.
+
 
 ## About the blog
 
-本网站致力于优秀的博客分享，会不定期的修改维护博客中的内容.
+
 
 
 
 ## Contact Me
 
-等网站稍微成熟之后，我会在这里贴上我的联系方式，包括，邮箱，微信等，敬请期待.
+
 
 ### Comments:
 
