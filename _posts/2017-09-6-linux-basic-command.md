@@ -20,12 +20,15 @@ tags: awk
 
 #### 1.1 awk的使用格式
 
-> (1) 命令行格式	
+> (1) 命令行格式
+>	
 > &emsp;&emsp; awk [options] var=value '[ BEGIN{ action;… } ] pattern{ action;… } [ END{action;… } ]' file ...	
+>	
 > (2) 调用自定义脚本	
+> 	
 > &emsp;&emsp; awk [options] var=value -f programfile file…	
 > 	
-**说明了awk命令的格式，先看下面的awk命令**
+**上面说明了awk命令的格式，先看下面的awk命令**
 
 > &emsp;&emsp; awk -F: -v var=value 'BEGIN{print hello } /root/{printf "%-15s %i\n",$1,$3} END{print byebye}' /etc/passwd
 
