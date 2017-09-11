@@ -6,7 +6,7 @@ categories: Linux
 tags:  搭建私有CA  openssl
 ---
 
-## OpenSSL及创建私有CA
+## 介绍
 
 ### OpenSSL 
 
