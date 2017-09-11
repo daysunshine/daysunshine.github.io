@@ -109,8 +109,8 @@ openssl enc -ciphername [-in filename] [-out filename] [-e] [-d] ...
 [ CA_default ]
 
 dir             = /etc/pki/CA     	       		# 默认工作目录
-certs           = $dir/certs          	    	#服务器证书存放位置
-crl_dir         = $dir/crl                  	#证书吊销列表
+certs           = $dir/certs          	    	        #服务器证书存放位置
+crl_dir         = $dir/crl                        	#证书吊销列表
 database        = $dir/index.txt        		#证书数据列表文件
 #unique_subject = no                   			# Set to 'no' to allow creation of
                                         		# several ctificates with same subject.
@@ -119,12 +119,12 @@ new_certs_dir   = $dir/newcerts      			#  新证书存放位置
 certificate     = $dir/cacert.pem      			#CA自己的证书存放处
 serial          = $dir/serial           		#序列号（十六进制数）为下一个证书的生成编号
 crlnumber       = $dir/crlnumber      			#吊销列表的工作号
-												# must be commented out to leave a V1 CRL
-crl                     = $dir/crl.pem          #证书吊销列表文件
+						        # must be commented out to leave a V1 CRL
+crl                     = $dir/crl.pem         		#证书吊销列表文件
 private_key       = $dir/private/cakey.pem		#CA私钥
-RANDFILE        = $dir/private/.rand            # 随机数文件
+RANDFILE        = $dir/private/.rand            	# 随机数文件
 
-x509_extensions = usr_cert             		 	# 
+x509_extensions = usr_cert             		 	
 
 
 default_days    = 365                   		# how long to certify for 证书时间
@@ -146,6 +146,7 @@ certs  crl  newcerts  private
 > 对比配置文件，可以看到缺少index.txt  serial文件，缺少的文件是需要我们自己创建出来的
 
 > CA policy (匹配的策略)是否需要相同
+
 ![匹配策略](https://thumbnail0.baidupcs.com/thumbnail/ac0e33e4b5e3a85f9b2c364492f6145f?fid=2905626949-250528-551472515013528&time=1505109600&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-UH5aktopuuropB8pnLxeb91cpoo%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=5882204161151315375&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video)
 
 > 在配置的设定中，国家、省份及公司名称是必须要一致的，否则在创建CA时会提示不匹配错误，当然也可以指定为都不匹配
@@ -175,7 +176,7 @@ certs  crl  newcerts  private
 	
 cd  /etc/pki/CA 
 	
-执行命令，并设定生成的文件权限为600
+#执行命令，并设定生成的文件权限为600
 
 [root@Centos6 /etc/pki/CA]#(umask 077; openssl  genrsa  -out  /etc/pki/CA/private/cakey.pem  -des  1024)
 
@@ -211,7 +212,7 @@ State or Province Name (full name) []:	henan
 Locality Name (eg, city) [Default City]:	zhengzhou
 Organization Name (eg, company) [Default Company Ltd]:	magedu            
 Organizational Unit Name (eg, section) []:	tech
-Common Name (eg, your name or your server's hostname) []:	magedu.com
+Common Name (eg, your name or your server's hostname) []:  magedu.com
 Email Address []:
 
 ``` 
@@ -429,7 +430,7 @@ Revoked Certificates:
 > 通过crl文件可以看出，确实将申请的证书吊销了
 
 
-> 到此创建私有的证书及颁发完毕，不足及错误之处还望指正
+>#### 到此创建私有的证书及颁发完毕，不足及错误之处还望指正
 
 
 
