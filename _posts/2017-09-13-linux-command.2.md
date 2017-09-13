@@ -9,11 +9,11 @@ tags:   pssh  密钥认证  端口转发
 
 ### 目录
 
-> - &emsp;&emsp  ssh命令及认证
-> - &emsp;&emsp  scp远程传输
-> - &emsp;&emsp  rsync高效远程传输文件
-> - &emsp;&emsp  pssh批量推送
-> - &emsp;&emsp  端口转发
+> - ssh命令及认证
+> - scp远程传输
+> - rsync高效远程传输文件
+> - pssh批量推送
+> - 端口转发
 
 
 ### ssh 
