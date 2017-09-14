@@ -101,7 +101,7 @@ openssl enc -ciphername [-in filename] [-out filename] [-e] [-d] ...
 > 
 > 我们来看一下,部分内容如下图：
 
-![openssl.cnf文件](https://thumbnail0.baidupcs.com/thumbnail/7c275fbdda536366e8517ecdbe1b121e?fid=2905626949-250528-643450039677197&time=1505109600&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-eYXXu5PGkj5NDjMtjFUoqTzZKJA%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=5882163115569843257&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video)
+![openssl.cnf文件](https://thumbnail0.baidupcs.com/thumbnail/7c275fbdda536366e8517ecdbe1b121e?fid=2905626949-250528-643450039677197&time=1505394000&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-HzZAO0U9dqCguA54%2F0HOK6C1gow%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=5958096931791719218&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video)
 
 ```shell
 
@@ -147,7 +147,7 @@ certs  crl  newcerts  private
 
 > CA policy (匹配的策略)是否需要相同
 
-![匹配策略](https://thumbnail0.baidupcs.com/thumbnail/ac0e33e4b5e3a85f9b2c364492f6145f?fid=2905626949-250528-551472515013528&time=1505109600&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-UH5aktopuuropB8pnLxeb91cpoo%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=5882204161151315375&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video)
+![匹配策略](https://thumbnail0.baidupcs.com/thumbnail/ac0e33e4b5e3a85f9b2c364492f6145f?fid=2905626949-250528-551472515013528&time=1505394000&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-RV1rZdw2I7kHggYW2mnQE9nig%2Fc%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=5958123164160430443&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video)
 
 > 在配置的设定中，国家、省份及公司名称是必须要一致的，否则在创建CA时会提示不匹配错误，当然也可以指定为都不匹配
 
