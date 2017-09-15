@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  自动化系统安装
-date:   2017-09-11 12:00:00
+date:   2017-09-15 12:00:00
 categories: Linux 
 tags:  自动化安装，制作U盘启动
 ---
