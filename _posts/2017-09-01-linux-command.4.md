@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title:  CentOS6启动流程
 date:   2017-09-01 08:00:00
