@@ -36,12 +36,15 @@ drwx------. 2 root root    16384 Jul 14 10:33  		 lost+found
 -rw-r--r--. 1 root root   215634 Mar 22 03:35		 symvers-2.6.32-696.el6.x86_64.gz
 -rw-r--r--. 1 root root  2622364 Mar 22 03:34		 System.map-2.6.32-696.el6.x86_64
 -rwxr-xr-x. 1 root root  4274992 Mar 22 03:34		 vmlinuz-2.6.32-696.el6.x86_64        内核文件
+
 ```
-####我们可以看到vmlinuz就是内核文件了，非常重要。其中还有一个叫initramfs的文件，它是虚拟文件系统用来在提供一个可执行的程序，通过它来加载启动过程中所需要的内核模块其实就是驱动程序。   
+
+#### 我们可以看到vmlinuz就是内核文件了，非常重要。其中还有一个叫initramfs的文件，它是虚拟文件系统用来在提供一个可执行的程序，通过它来加载启动过程中所需要的内核模块其实就是驱动程序。   
     4、在内核加载完成后就到系统启动的第一个进程，centos6里面为init进程
 **下面来了解一下init进程的配置文件```/etc/inittab```,先来看看**   
 
 ```shell
+
 [root@Centos6 /boot/grub]#cat /etc/inittab 
 # inittab is only used by upstart for the default runlevel.
 #
@@ -70,8 +73,10 @@ drwx------. 2 root root    16384 Jul 14 10:33  		 lost+found
 # 
 id:5:initdefault:
 ```
+
 **其中我们可以看到有0-6 共7个运行等级，我们可以看到本系统为id:5:initdefault:运行在5模式，其他的选项都已在特定的文件下直接定义
 我们看一下**
+
 ```shell
 [root@Centos6 /boot/grub]#cat /etc/init/rc.conf
 # rc - System V runlevel compatibility
@@ -87,10 +92,12 @@ task
 export RUNLEVEL
 console output
 exec /etc/rc.d/rc $RUNLEVEL
+
 ```
-不同的运行等级脚本存放路径为/etc/rc.d/rc#.d，稍后再做详解   
+
+> 不同的运行等级脚本存放路径为/etc/rc.d/rc#.d，稍后再做详解   
 	
-    5、在开启第一个进程后init开始处理系统的初始化脚本，/etc/rc.d/rc.sysinit这里包含了网络环境与主机类型、SELinux是否启动等等，一般不作更改，这里不做赘述。   
+    	5、在开启第一个进程后init开始处理系统的初始化脚本，/etc/rc.d/rc.sysinit这里包含了网络环境与主机类型、SELinux是否启动等等，一般不作更改，这里不做赘述。   
 	6、启动核心的模块（驱动程序）   
 	7、init执行运行的各个批处理文件(scripts)，例如我们在/etc/inittab里面知道本系统启动过程中运行在5模式，那么init会找到运行等级为5的脚本在/etc/rc5.d
 - [x]     在脚本中包含了两类文件名分别是：以K* 和S* 开始的文件名，而已K或S开头的文件实际为系统的服务程序，排序在前越先执行。
@@ -100,6 +107,7 @@ exec /etc/rc.d/rc $RUNLEVEL
  **我们来看一下```/etc/rc5.d```目录下的内容**
 
 ```shell
+
 [root@Centos6 /etc/rc.d/rc5.d]#ll
 total 0
 省略部分显示
@@ -108,6 +116,7 @@ lrwxrwxrwx. 1 root root 18 Jul 14 11:17 S13cpuspeed -> ../init.d/cpuspeed
 lrwxrwxrwx. 1 root root 20 Jul 14 11:08 S13irqbalance -> ../init.d/irqbalance
 lrwxrwxrwx. 1 root root 20 Jul 14 11:03 S99certmonger -> ../init.d/certmonger
 lrwxrwxrwx. 1 root root 11 Jul 14 10:52 S99local -> ../rc.local
+
 ```
 	8、用户自定义开机启动程序/etc/rc.d/rc.local
 	从上个步骤中，我们知道/etc/rc.d/rc.local 是最后被执行的，我们可以添加一些选项在其中，可以在系统启动的时候就可以启动，很是方便。
@@ -182,6 +191,7 @@ title CentOS 6 (2.6.32-696.el6.x86_64)
 5、```title CentOS 6 (2.6.32-696.el6.x86_64)```**	
 
 ```shell
+
 菜单名称
 	root (hd0,0)				说明内核所在的那个分区
 	kernel /vmlinuz-2.6.32-696.el6.x86_64 ro root=UUID<此处省略部分> rhgb quiet 指定内核，以及操作系统的根目录在什么地方，这里root=UUID也可直接写上/root所在的分区，例如;root=/dev/sda2,后面的参数是启动时候的一些选项，这里不做赘述。
@@ -192,7 +202,7 @@ title CentOS 6 (2.6.32-696.el6.x86_64)
 本文只是根据实际情况进行了介绍，可能不全面，在此指出。
 
 
-###附上启动流程流程框图：
+### 附上启动流程流程框图：
 
 
 
