@@ -9,8 +9,10 @@ tags:  yum  源码编译httpd
 > yum本身相比于rpm来说，能够将有依赖的包文件一次性的安装完成，是相当的方便的。
 > yum的服务器支持的几种格式：
 > -        http、https、ftp、file
+
 ### 1、yum基础命令
 #### 1、yum命令
+
 ```shell
 
      yum [options] [command] [package ...]	
@@ -32,7 +34,7 @@ tags:  yum  源码编译httpd
 ```
 #### 2、查看yum历史(基于yum历史可以实现撤销操作)
 
-> 命令格式：yum history [info | list | ...]
+> 命令格式：yum history [info | list | ... ]
 
 ```shell
 	eg: [root@Centos6 ~]#yum history 
