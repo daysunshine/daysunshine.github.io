@@ -6,7 +6,6 @@ categories: Linux
 tags:  yum  源码编译httpd
 ---
 
-## 创建yum源及源码编译httpd
 > yum本身相比于rpm来说，能够将有依赖的包文件一次性的安装完成，是相当的方便的。
 > yum的服务器支持的几种格式：
 > -        http、https、ftp、file
