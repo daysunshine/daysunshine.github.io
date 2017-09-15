@@ -6,29 +6,37 @@ categories: Linux
 tags:  yum  源码编译httpd
 ---
 
-##创建yum源及源码编译httpd
-     yum本身相比于rpm来说，能够将有依赖的包文件一次性的安装完成，是相当的方便的。
-     yum的服务器支持的几种格式：
-        http、https、ftp、file
-###1、yum基础命令
-    1、yum命令
+## 创建yum源及源码编译httpd
+> yum本身相比于rpm来说，能够将有依赖的包文件一次性的安装完成，是相当的方便的。
+> yum的服务器支持的几种格式：
+> -        http、https、ftp、file
+### 1、yum基础命令
+#### 1、yum命令
+```shell
+
      yum [options] [command] [package ...]	
 		 [options]: 基本不用
 		 [command]: 
 		         repolist[all | enable | disable]: 显示仓库列表[所有|启用|禁用] 
 		         list[all | glob]: 显示程序包[所有 | 通配符]
 		         -y : 在安装时自动回答yes
-     安装程序包: yum install package  安装 
+```
+```shell
+     	安装程序包: yum install package  安装 
                	 yum reinstall package  重新安装
-	 升级程序包: yum update package 升级
+	升级程序包: yum update package 升级
 	             yum downgrade package 降级
-	 卸载程序包: yum remove | erase  package 
-	 清除本地yum缓存
-	     当更换光盘时，往往在新建yum时会导致不能读到光盘，这时我们就需要进行清除yum的缓存
+	卸载程序包: yum remove | erase  package 
+	清除本地yum缓存
+	当更换光盘时，往往在新建yum时会导致不能读到光盘，这时我们就需要进行清除yum的缓存
 		 yum clean all 
-	2、查看yum历史(基于yum历史可以实现撤销操作)
-         yum history [info | list | ...]
-        eg: [root@Centos6 ~]#yum history 
+```
+#### 2、查看yum历史(基于yum历史可以实现撤销操作)
+
+> 命令格式：yum history [info | list | ...]
+
+```shell
+	eg: [root@Centos6 ~]#yum history 
              Loaded plugins: fastestmirror, refresh-packagekit, security
             ID | Login user               | Date and time    | Action(s)      | Altered 
              -------------------------------------------------------------------------------
@@ -38,14 +46,16 @@ tags:  yum  源码编译httpd
              history list	
         eg: yum history redo 3  会将root安装的历史步骤重做相当于卸载
             yum history undo 3  会将root安装历史步骤撤销
-    3、包组管理的相关命令
+```
+#### 3、包组管理的相关命令
          yum groupinstall group1 安装包组
          yum groupupdate group1  升级包组
 		 yum grouplist group1    列出包组清单
 		 yum groupremove group1  移除包组
 		 yum groupinfo group1    包组详细信息
-###2、yum仓库的创建
-####(1)本地yum源
+### 2、yum仓库的创建
+#### (1)本地yum源
+
 ```
     1、yum的配置文件
         /etc/yum.conf  为所有的yum仓库提供公共配置
@@ -91,7 +101,8 @@ tags:  yum  源码编译httpd
 	(7)创建yum配置文件
 	    这里与本地yum仓库的配置文件类似，这里不在说明
 ```
-####(3)源码编译httpd
+#### (3)源码编译httpd
+
 ```
    在生产中，我们安装工具时会遇到很多命令或工具会有依赖关系，很是麻烦，并且还不能定制特性
  1、下载源码并解压
@@ -122,7 +133,8 @@ tags:  yum  源码编译httpd
 	 echo "export PATH=/path/to/somewhere/bin/apachectl:$PATH" > /etc/profile.d/xxx.sh
 	 而后 ./apachectl start 即启动服务
 ```
-###3、附上自己源码编译简单脚本:
+### 3、附上自己源码编译简单脚本:
+
 ```
 # 查询httpd命令之前是否安装过，如果安装过则移除
 rpm -qa "httpd*" &> /dev/null && yum remove httpd   
