@@ -6,8 +6,6 @@ categories: Linux
 tags:  PXE 自动化安装 DHCP
 ---
 
-
-
 ## 介绍
 
 > &emsp;&emsp; PXE(preboot execute environment，预启动执行环境)是由Intel公司开发的最新技术，工作于Client/Server的网络模式，支持工作站通过网络从远端服务器下载映像，
