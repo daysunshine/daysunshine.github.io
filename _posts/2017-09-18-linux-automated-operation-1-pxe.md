@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title:  自动化安装之PXE
 date:   2017-09-18 08:00:00
