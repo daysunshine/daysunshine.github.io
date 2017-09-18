@@ -59,7 +59,7 @@ mount /dev/sr0 /var/ftp/pub/centos/6
 > 这里我们进行自己的设定
 > 命令如下:
 
-```shell
+```
 
 #将光盘下的anaconda-ks.cfg文件复制并修改
 cp /root/anaconda-ks.cfg /var/ftp/pub/ksdir/ks6.cfg  
