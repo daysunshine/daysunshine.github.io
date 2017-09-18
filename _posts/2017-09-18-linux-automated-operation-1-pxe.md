@@ -74,7 +74,7 @@ vim /var/ftp/pub/ksdir/ks6.cfg
 
 #version=DEVEL
 install
-url --url=ftp://172.18.18.18/centos/6   #配置自己yum源
+url --url=ftp://172.18.18.18/centos/6                                   #配置自己yum源
 text									#设定为文本格式
 lang en_US.UTF-8
 keyboard us
@@ -90,7 +90,7 @@ bootloader --location=mbr --driveorder=sda --append="crashkernel=auto rhgb quiet
 # Note that any partitions you deleted are not expressed
 # here so unless you clear all partitions first, this is
 # not guaranteed to work
-clearpart --all							#清除分区表
+clearpart --all							        #清除分区表
 zerombr									#清空mbr
 part /boot --fstype=ext4 --size=1024
 part / --fstype=ext4 --size=50000
@@ -147,7 +147,7 @@ ksvalidator  /var/ftp/pub/ksdir/ks6.cfg
 /etc/sysconfig/dhcrelay				#dhcp中继器(通过命令可开启)
 /etc/sysconfig/dhcrelay6
 /usr/bin/omshell
-/usr/sbin/dhcpd						#dhcp二进制程序
+/usr/sbin/dhcpd					#dhcp二进制程序
 /usr/sbin/dhcrelay
 /usr/share/doc/dhcp-4.1.1
 ...
@@ -172,11 +172,11 @@ ksvalidator  /var/ftp/pub/ksdir/ks6.cfg
 #
 
 # option definitions common to all supported networks...
-option domain-name "example.org";										#主机名
+option domain-name "example.org";						#主机名
 option domain-name-servers ns1.example.org, ns2.example.org;			#DNS名
 
-default-lease-time 600;													#默认租期时间
-max-lease-time 7200;													#最大租期时间
+default-lease-time 600;								#默认租期时间
+max-lease-time 7200;								#最大租期时间
 
 # Use this to enble / disable dynamic dns updates globally.
 #ddns-update-style none;
@@ -192,10 +192,10 @@ log-facility local7;
 # No service will be given on this subnet, but declaring it helps the 
 # DHCP server to understand the network topology.
 
-subnet 172.18.18.0 netmask 255.255.255.0 {								#子网地址及掩码
-        range 172.18.18.20 172.18.18.30;								#dhcp地址池范围
-        next-server 172.18.18.18;										#提供引导文件的服务器IP地址
-        filename "pxelinux.0";											#引导文件的位置
+subnet 172.18.18.0 netmask 255.255.255.0 {					#子网地址及掩码
+        range 172.18.18.20 172.18.18.30;					#dhcp地址池范围
+        next-server 172.18.18.18;						#提供引导文件的服务器IP地址
+        filename "pxelinux.0";							#引导文件的位置
 }
 
 以下省略
