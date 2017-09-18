@@ -11,7 +11,7 @@ tags:  PXE 自动化安装 DHCP
 > &emsp;&emsp; PXE(preboot execute environment，预启动执行环境)是由Intel公司开发的最新技术，工作于Client/Server的网络模式，支持工作站通过网络从远端服务器下载映像，
 > 并由此支持通过网络启动操作系统，在启动过程中，终端要求服务器分配IP地址，再用TFTP(trivial file transfer protocol)或MTFTP(multicast trivial file transfer protocol)协议下载一个启动软件包到本机内存中执行，
 > 由这个启动软件包完成终端(客户?)基本软件设置，从而引导预先安装在服务器中的终端操作系统。
-> PXE可以引导多种操作系统，如:Windows95/98/2000/windows2003/windows2008/winXP/win7/win8,linux等。
+> PXE可以引导多种操作系统，如Windows95/windows2000/win7/win8/及linux等。
 
 > 接下来我们将会对PXE自动安装程序进行详细的介绍
 
