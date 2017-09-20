@@ -8,7 +8,7 @@ tags:  DNS
 
 ## 简介
 
-> DNS 是计算机域名系统 (Domain Name System 或Domain Name Service) 的缩写，它是由解析器和域名服务器组成的。域名服务器是指保存有该网络中所有主机的域名和对应IP地址，并具有将域名转换为IP地址功能的服务器。其中域名必须对应一个IP地址，而IP地址不一定有域名。域名系统采用类似目录树的等级结构。域名服务器为C/S模式中的服务器方，它主要有两种形式:主服务器和转发服务器。将域名映射为IP地址的过程就称为"域名解析"。
+> &emsp;&emsp;DNS 是计算机域名系统 (Domain Name System 或Domain Name Service) 的缩写，它是由解析器和域名服务器组成的。域名服务器是指保存有该网络中所有主机的域名和对应IP地址，并具有将域名转换为IP地址功能的服务器。其中域名必须对应一个IP地址，而IP地址不一定有域名。域名系统采用类似目录树的等级结构。域名服务器为C/S模式中的服务器方，它主要有两种形式:主服务器和转发服务器。将域名映射为IP地址的过程就称为"域名解析"。
 > 在Internet上域名与IP地址之间是一对一(或者多对一)的，也可采用DNS轮循实现一对多，域名虽然便于人们记忆，但机器之间只认IP地址，它们之间的转换工作称为域名解析，域名解析需要由专门的域名解析服务器来完成，DNS就是进行域名解析的服务器。DNS 命名用于 Internet等 TCP/IP网络中，通过用户友好的名称查找计算机和服务。当用户在应用程序中输入 DNS 名称时，DNS 服务可以将此名称解析为与之相关的其他信息，
 > 如 IP 地址。因为，你在上网时输入的网址，是通过域名解析系统解析找到了相对应的IP地址，这样才能上网。其实，域名的最终指向是IP。
 
@@ -76,8 +76,7 @@ options {
     memstatistics-file "/var/named/data/named_mem_stats.txt";
 	allow-query     { any; };				#允许查询的DNS主机
 	recursion yes;						#是否允许递归查询
-	allow-transfer {localhost;};				#设定谁能够从主DNS服务器获得数据信息，一般为了安全考虑，将此处设定为只有从
-							服务器才可以进行更新及下载访问数据，并且将从服务器设定为allow-transfer {none;};
+	allow-transfer {localhost;};				#设定谁能够从主DNS服务器获得数据信息，一般为了安全考虑，将此处设定为只有从服务器才可以进行更新及下载访问数据，并且将从服务器设定为allow-transfer {none;};
 	
 	dnssec-enable yes;
 	dnssec-validation yes;
