@@ -22,7 +22,7 @@ tags:  DNS
 ```shell
 
 /etc/named.conf		#DNS的主配置文件
-/var/named			#数据库默认存放的位置
+/var/named		#数据库默认存放的位置
 /var/run/named		#named程序执行时默认将pid-file放置在此目录内
 /var/named/named.ca	#根域的文件
 
@@ -53,8 +53,8 @@ tcp   LISTEN     0      100                             127.0.0.1:25            
 > 这里还要说明：
 
 ```
-				TCP 53端口是同步用的
-				UDP 53端口提供用户查询和同步用的
+	TCP 53端口是同步用的
+	UDP 53端口提供用户查询和同步用的
 ```
 
 ####  /etc/named.conf配置文件
@@ -68,15 +68,16 @@ tcp   LISTEN     0      100                             127.0.0.1:25            
 // named.conf
 
 options {
-	listen-on port 53 { localhost; };		#默认监听的53端口(localhost表示本机的所有的地址)
+	listen-on port 53 { localhost; };			#默认监听的53端口(localhost表示本机的所有的地址)
 	listen-on-v6 port 53 { ::1; };			
 	directory 	"/var/named";				#指定默认的数据库文件位置
 	dump-file 	"/var/named/data/cache_dump.db";
     statistics-file "/var/named/data/named_stats.txt";
     memstatistics-file "/var/named/data/named_mem_stats.txt";
 	allow-query     { any; };				#允许查询的DNS主机
-	recursion yes;							#是否允许递归查询
-	allow-transfer {localhost;};			#设定谁能够从主DNS服务器获得数据信息，一般为了安全考虑，将此处设定为只有从服务器才可以进行更新及下载访问数据，并且将从服务器设定为allow-transfer {none;};
+	recursion yes;						#是否允许递归查询
+	allow-transfer {localhost;};				#设定谁能够从主DNS服务器获得数据信息，一般为了安全考虑，将此处设定为只有从
+							服务器才可以进行更新及下载访问数据，并且将从服务器设定为allow-transfer {none;};
 	
 	dnssec-enable yes;
 	dnssec-validation yes;
@@ -112,7 +113,7 @@ include "/etc/named.root.key";
 ...
 zone "localhost" IN {
 	type master;				#指定类型，[master | slave]
-	file "named.localhost";		#指定DNS数据库的文件名称(注意在/var/named下，与设定的文件名称相同)
+	file "named.localhost";			#指定DNS数据库的文件名称(注意在/var/named下，与设定的文件名称相同)
 	allow-update { none; };
 };
 ...
@@ -130,14 +131,14 @@ zone "localhost" IN {
 [root@Centos6 /var/named]#ll
 
 total 36
-drwxr-x---. 7 root  named 4096 Sep 17 13:08 chroot			#切换根的目录
+drwxr-x---. 7 root  named 4096 Sep 17 13:08 chroot		#切换根的目录
 drwxrwx---. 2 named named 4096 Sep 17 13:43 data		
 drwxrwx---. 2 named named 4096 Sep 18 11:52 dynamic
 -rw-r-----. 1 root  named 3171 Jan 11  2016 named.ca		#根域的信息文件
 -rw-r-----. 1 root  named  152 Dec 15  2009 named.empty
 -rw-r-----. 1 root  named  152 Jun 21  2007 named.localhost	#正向解析数据参考文件
 -rw-r-----. 1 root  named  168 Dec 15  2009 named.loopback	#反向解析数据参考文件
-drwxrwx---. 2 named named 4096 Mar 23 04:26 slaves			#奴隶文件(主从复制时放置副DNS数据的地址)
+drwxrwx---. 2 named named 4096 Mar 23 04:26 slaves		#奴隶文件(主从复制时放置副DNS数据的地址)
 -rw-r-----. 1 root  named  252 Sep 18 11:33 yan.com.zone
 
 ```
@@ -148,12 +149,12 @@ drwxrwx---. 2 named named 4096 Mar 23 04:26 slaves			#奴隶文件(主从复制�
 
 [root@Centos6 /var/named]#cat yan.com.zone 
 
-$TTL 1D										#设定全局的TTL值
+$TTL 1D									#设定全局的TTL值
 @	IN SOA	dns1   adamin.yan.com.  (		#SOA开始认证标识
-					2017091901	; serial	#序列号                                                                           
-					1D	; refresh			.
-					1H	; retry				.
-					1W	; expire			.
+					2017091901	; serial	#序列号                              
+					1D	; refresh		.
+					1H	; retry			.
+					1W	; expire		.
 					3H )	; minimum		参数
 
 #指定域名的解析服务器					
@@ -191,7 +192,7 @@ mailsrv A 	172.18.18.20
 ;; ANSWER SECTION:
 websrv.yan.com.		86400	IN	A	172.18.18.10
 
-#主机FQDN.          TTL             主机的IP地址
+#主机FQDN.              TTL                      主机的IP地址
 
 ```
 
@@ -455,7 +456,7 @@ $TTL 1D
         NS      dns1
 beijing NS      dns2					#这里进行了改变，指定beijing.yan.com.的域名指向dns2
 dns1    A       172.18.18.18
-dns2    A       172.18.18.20			#这里指定了dns2的IP地址，通过这两条就知道了beijing域，委派给dns2来管理了
+dns2    A       172.18.18.20				#这里指定了dns2的IP地址，通过这两条就知道了beijing域，委派给dns2来管理了
 websrv  A       172.18.18.10
 www     CNAME   websrv
 @       MX      10 mailsrv
@@ -537,7 +538,7 @@ dns1.beijing.yan.com.	86400	IN	A	172.18.18.10
 
 ```shell
 
-	forward  only | first	#first:表示转发后没有结果的时候，会自行解析 ，only则是只负责转发，不负责解析
+	forward  only | first		#first:表示转发后没有结果的时候，会自行解析 ，only则是只负责转发，不负责解析
 	forwarders {IP;};		#指定转发的IP地址
 	
 ```
