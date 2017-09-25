@@ -9,7 +9,7 @@ tags:  Mariadb
 
 #### 1、创建MySQL用户
 
-```shell
+```
 
 #创建MySQL用户,-r 指定其为系统用户,id为306，-d 设定其家目录为/app/data,-s 设定登录shell为nologin
 [root@centos6 ~]#useradd  -r -u 306 -s /sbin/nologin -m -d /app/data  mysql 
@@ -28,7 +28,7 @@ drwx------ 4 mysql mysql 4096 Sep 24 07:34 /app/data
 
 > &emsp;&emsp;二进制程序包已经内部设定好安装路径，我们最好解压到/usr/local/下，当然也可以安装到自己指定的地方，但需要将其配置文件当中的路径进行更改，否则会报错
 
-```shell
+```
 
 #将二进制解压至/usr/local/下
 [root@centos6 ~]#tar xvf mariadb-5.5.57-linux-x86_64 -C /usr/local/
@@ -41,7 +41,7 @@ drwx------ 4 mysql mysql 4096 Sep 24 07:34 /app/data
 
 > 我们有必要了解一下解压后目录内的文件有哪些
 
-```shell
+```
 
 [root@centos6 ~]#ll /usr/local/mariadb-5.5.57-linux-x86_64/
 total 192
@@ -65,7 +65,7 @@ drwxr-xr-x  3 root root   4096 Sep 22 19:12 support-files		  #配置文件模板
 > &emsp;&emsp;我们看到属组属主为非mysql用户，所以将mysql下的所有文件更改为mysql所拥有
 > &emsp;&emsp;这里说明在mysql初始化脚本完成后需要将mysql的属组更改回root所拥有，避免mysql被黑客攻破后能够直接利用mysql当中的数据
 
-```shell
+```
 
 [root@centos6 /usr/local]#chown -R mysql.mysql mysql/*
 
@@ -73,7 +73,7 @@ drwxr-xr-x  3 root root   4096 Sep 22 19:12 support-files		  #配置文件模板
 
 #### 3、创建数据库文件
 
-```shell
+```
 
 #切换至mysql目录，否则会报错
 [root@centos6 ~]#cd /usr/local/mysql  
@@ -94,7 +94,7 @@ chown -R root mysql/*
 
 > &emsp;&emsp;二进制当中的配置文件查找次序为: ~/.my.cnf--> --default-extra-file=/PATH/TO/CONF_FILE --> /etc/mysql/my.cnf --> /etc/my.cnf
 
-```shell
+```
 
 #创建配置文件的目录
 mkdir  /etc/mysql/
@@ -148,7 +148,7 @@ Starting MySQL.170924 09:11:56 mysqld_safe Logging to '/var/log/mysqld.log'.
 
 > &emsp;&emsp;二进制安装时环境变量找不到mysql的二进制执行命令，为了方便需要手动添加至环境变量里，而不用写其绝对路径
 
-```shell
+```
 
 #添加环境变量路径
 [root@centos6 /usr/local/mysql]#vim  /etc/profile.d/mysql.sh
