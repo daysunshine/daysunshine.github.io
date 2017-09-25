@@ -45,20 +45,20 @@ drwx------ 4 mysql mysql 4096 Sep 24 07:34 /app/data
 
 [root@centos6 ~]#ll /usr/local/mariadb-5.5.57-linux-x86_64/
 total 192
-drwxr-xr-x  2 root root   4096 Sep 22 19:12 bin					#二进制程序存放的位置
+drwxr-xr-x  2 root root   4096 Sep 22 19:12 bin					      #二进制程序存放的位置
 -rw-r--r--  1 yan  yan   17987 Jul 19 04:33 COPYING
-drwxr-xr-x  3 root root   4096 Sep 22 19:12 data				#数据存放的位置，但一般在实际中需要将其放置在逻辑卷中，本文以mysql的家目录为例，作为数据存放的位置
+drwxr-xr-x  3 root root   4096 Sep 22 19:12 data				      #数据存放的位置，但一般在实际中需要将其放置在逻辑卷中，本文以mysql的家目录为例，作为数据存放的位置
 -rw-r--r--  1 yan  yan    8245 Jul 19 04:33 EXCEPTIONS-CLIENT
 drwxr-xr-x  3 root root   4096 Sep 22 19:12 include
 -rw-r--r--  1 yan  yan    8694 Jul 19 04:33 INSTALL-BINARY		#安装手册目录
-drwxr-xr-x  3 root root   4096 Sep 22 19:11 lib					
-drwxr-xr-x  4 root root   4096 Sep 22 19:12 man
+drwxr-xr-x  3 root root   4096 Sep 22 19:11 lib					      #库文件
+drwxr-xr-x  4 root root   4096 Sep 22 19:12 man
 drwxr-xr-x 11 root root   4096 Sep 22 19:10 mysql-test
 -rw-r--r--  1 yan  yan  108813 Jul 19 04:33 README
-drwxr-xr-x  2 root root   4096 Sep 22 19:12 scripts				#初始化脚本目录
+drwxr-xr-x  2 root root   4096 Sep 22 19:12 scripts				    #初始化脚本目录
 drwxr-xr-x 27 root root   4096 Sep 22 19:12 share
 drwxr-xr-x  4 root root   4096 Sep 22 19:12 sql-bench
-drwxr-xr-x  3 root root   4096 Sep 22 19:12 support-files		#配置文件模板
+drwxr-xr-x  3 root root   4096 Sep 22 19:12 support-files		  #配置文件模板
 
 ```
 
@@ -103,9 +103,9 @@ mkdir  /etc/mysql/
 cp support-files/my-large.cnf /etc/mysql/my.cnf
 
 #并在[mysqld]选项中添加如下内容
-datadir = /app/data					#指定数据库的位置
-innodb_file_per_table = on			#
-skip_name_resolve = on				#禁止主机名解析
+datadir = /app/data					    #指定数据库的位置
+innodb_file_per_table = on			
+skip_name_resolve = on				  #禁止主机名解析
 
 ```
 
@@ -164,7 +164,7 @@ export PATH=$PATH:/usr/local/mysql/bin
 > 运行命令脚本: /user/local/mysql/bin/mysql_secure_installation，来进行安全设定
 
 
-#### 到此二进制安装Mariadb就结束了，如有错误之处请批评指正！
+#### **到此二进制安装Mariadb就结束了，如有错误之处请批评指正！**
 
 
 
