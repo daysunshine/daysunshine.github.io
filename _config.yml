@@ -10,7 +10,7 @@ gems: [jekyll-paginate]
 permalink:        /blog/:year/:month/:day/:title
 
 # Setup
-title:            'Day Sun Shine'
+title:            '一杯敬明天 一杯敬过往 一杯敬自由 一杯敬死亡'
 tagline:          'A Metro theme for Jekyll'
 description:      'My blog'
 url:              'https://daysunshine.github.io'
@@ -33,7 +33,7 @@ navigation:
 
 
 # Author Details
-author:         'mengxue'
+author:         'mengda'
 # 支持中文编码
 encoding: 'utf-8'
 
