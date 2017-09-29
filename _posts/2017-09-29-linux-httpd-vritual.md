@@ -89,7 +89,7 @@ www.c.org
 
 ### 基于FQDN的虚拟主机设定
 
-> 这里需先说明，设定的主机名需要能够通过DNS进行解析到，这里不再对DNS如何搭建进行过多的赘述，可以查看博客如何实现，[DNS服务](http://www.daysunshine.com/blog/2017/09/20/linux-server-DNS "DNS服务")
+> 这里需先说明，设定的主机名需要能够通过DNS进行解析到，这里不再对DNS如何搭建进行过多的赘述，可以查看博客如何实现，[《DNS服务》](http://www.daysunshine.com/blog/2017/09/20/linux-server-DNS "DNS服务")
 
 ```shell
 
