@@ -8,9 +8,9 @@ tags:  centos7.3编译实现LAMP PHP配置
 
 ## 介绍
 
-> LAMP指的Linux(操作系统)、ApacheHTTP 服务器，MySQL(有时也指MariaDB，数据库软件) 和PHP(有时也是指Perl或Python) 的第一个字母，一般用来建立web应用平台。
-> LAMP(Linux- Apache-MySQL-PHP)网站架构是目前国际流行的Web框架，该框架包括:Linux操作系统，Apache网络服务器，MySQL数据 库，Perl、PHP或者Python编程语言，所有组成产品均是开源软件，是国际上成熟的架构框架，很多流行的商业应用都是采取这个架构，和 Java/J2EE架构相比，LAMP具有Web资源丰富、轻量、快速开发等特点，微软的.NET架构相比，LAMP具有通用、跨平台、高性能、低价格的 优势，因此LAMP无论是性能、质量还是价格都是企业搭建网站的首选平台。
-> 对于大流量、大并发量的网站系统架构来说，除了硬件上使用高 性能的服务器、负载均衡、CDN等之外，在软件架构上需要重点关注下面几个环节:使用高性能的操作系统(OS)、高性能的网页服务器(Web Server)、高性能的数据库(Database)、高效率的编程语言等。
+> &emsp;&emsp;LAMP指的Linux(操作系统)、ApacheHTTP 服务器，MySQL(有时也指MariaDB，数据库软件) 和PHP(有时也是指Perl或Python) 的第一个字母，一般用来建立web应用平台。
+> &emsp;&emsp;LAMP(Linux- Apache-MySQL-PHP)网站架构是目前国际流行的Web框架，该框架包括:Linux操作系统，Apache网络服务器，MySQL数据 库，Perl、PHP或者Python编程语言，所有组成产品均是开源软件，是国际上成熟的架构框架，很多流行的商业应用都是采取这个架构，和 Java/J2EE架构相比，LAMP具有Web资源丰富、轻量、快速开发等特点，微软的.NET架构相比，LAMP具有通用、跨平台、高性能、低价格的 优势，因此LAMP无论是性能、质量还是价格都是企业搭建网站的首选平台。
+> &emsp;&emsp;对于大流量、大并发量的网站系统架构来说，除了硬件上使用高 性能的服务器、负载均衡、CDN等之外，在软件架构上需要重点关注下面几个环节:使用高性能的操作系统(OS)、高性能的网页服务器(Web Server)、高性能的数据库(Database)、高效率的编程语言等。
 
 ### PHP配置
 
@@ -380,11 +380,12 @@ vim /app/httpd24/htdocs/index.php
 	phpinfo();
 ?>
 
-#在浏览器当中进行访问测试，查看是否成功
+```
+> 在浏览器当中进行访问测试，查看是否成功
 
 ![PHP与Mariadb连接测试](/assets/pictures/php-mariadb-test.png)
 
-```
+
 
 #### 5、配置WordPress
 
