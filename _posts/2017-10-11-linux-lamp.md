@@ -409,15 +409,15 @@ setfacl -R -m u:apache:rwx wordpress
 > 通过浏览器登录http://172.18.18.10/blog
 > 填写必要的信息如图所示
 
-![填写信息](assets/pictures/localdenglu.png)
+![填写信息](/assets/pictures/localdenglu.png)
 
 > 账户密码的设定
 
-![登录设置](assets/pictures/denglusetting.png)
+![登录设置](/assets/pictures/denglusetting.png)
 
 > 设定成功提示
 
-![设定成功](assets/pictures/success.png)
+![设定成功](/assets/pictures/success.png)
 
 > 通过ab命令来进行压力测试
 ab -c 10 -n 100 http://172.18.18.10/blog/
@@ -437,73 +437,3 @@ Transfer rate:          621.32 [Kbytes/sec] received
 ```
 
 #### 至此centos7.3编译安装LAMP并实现WordPress完成，如有错误还望批评指正，敬请谅解！
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
