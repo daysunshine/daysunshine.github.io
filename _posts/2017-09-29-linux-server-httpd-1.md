@@ -215,7 +215,7 @@ UseCanonicalName Off
 
 > 在许多不同的环境当中，当需要启动多个Apache服务时，或者80端口被占用的时候，可以修改listen的设定端口值
 
-### 定义'Main' server的文档页面路径
+### 定义'Main'server的文档页面路径
 
 ```shell
 
@@ -244,12 +244,10 @@ DocumentRoot "/var/www/html"  --> 可以设定成放置首页的目录
 > - #### option (目录参数)
 > - &emsp;&emsp;option的设置是表示在指定的目录能够进行的权限操作，后跟1个或多个以空白字符分隔的选项列表，在选项前的+，-表示增加或删除指定选项
 > 常见选项
->> - indexes : 如果在此目录下找不到首页文件(默认为index.html)时，列出文件夹的目录(建议不去使用该设置)，首页的文件名还与DirectoryIndex的设定有关
-
+>> - indexes : 如在此目录下找不到首页文件(默认为index.html)时，列出文件夹的目录(建议不去使用该设置)，首页的文件名还与DirectoryIndex的设定有关
 >> - FollowSymLinks : 是否支持软连接，访问符号链接文件所指向的源文件
 >> &emsp;&emsp None  全部禁用
->> &emsp;&emsp All   全部允许
-		
+>> &emsp;&emsp All   全部允许	
 >> - ExecCGI : 让此目录具有执行CGI权限
 
 > 示例: 
@@ -267,7 +265,7 @@ DocumentRoot "/var/www/html"  --> 可以设定成放置首页的目录
 ```
 
 > - #### AllowOverride
-> - &emsp;&emsp;是否允许额外的配置文件.htaccess的某些参数覆盖之前的配置指令，只对<directory>设定的语句有效
+&emsp;&emsp;是否允许额外的配置文件.htaccess的某些参数覆盖之前的配置指令，只对<directory>设定的语句有效
 
 > 权限类型:
 
@@ -282,14 +280,11 @@ None 		:不可覆盖.htaccess失效
 ```
 
 > - #### Order、allow和deny
-> - &emsp;&emsp;order:定义生效次序，写在后面的表示默认法则
+&emsp;&emsp;order:定义生效次序，写在后面的表示默认法则
 
 >> - order deny,allow :以deny优先处理，没有写入规则的默认为allow，常用于拒绝所有，允许特定条件
-
 >> - order allow,deny :以allow优先处理，没有写入规则的默认为deny，常用于允许所有，拒绝特定条件
-
 >> - Allow from, Deny from 允许，拒绝指定的条件
-
 >> - 若allow与deny设定的规则有冲突，则以order设定的为准
 
 示例:
@@ -435,6 +430,7 @@ Require user wang yan
 > 命令格式：```htpasswd [-c] [-s] [-m] [-D] passwdfile username```
 
 **选项**
+
 ```shell
 
 -c :自动创建文件，仅应该在文件不存在时使用，如果使用则会覆盖之前创建的用户
