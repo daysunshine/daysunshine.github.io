@@ -8,9 +8,9 @@ tags:  centos7.3编译实现LAMP PHP配置
 
 ## 介绍
 
-> LAMP指的Linux(操作系统)、ApacheHTTP 服务器，MySQL(有时也指MariaDB，数据库软件) 和PHP(有时也是指Perl或Python) 的第一个字母，一般用来建立web应用平台。
-> LAMP(Linux- Apache-MySQL-PHP)网站架构是目前国际流行的Web框架，该框架包括:Linux操作系统，Apache网络服务器，MySQL数据 库，Perl、PHP或者Python编程语言，所有组成产品均是开源软件，是国际上成熟的架构框架，很多流行的商业应用都是采取这个架构，和 Java/J2EE架构相比，LAMP具有Web资源丰富、轻量、快速开发等特点，微软的.NET架构相比，LAMP具有通用、跨平台、高性能、低价格的 优势，因此LAMP无论是性能、质量还是价格都是企业搭建网站的首选平台。
-> 对于大流量、大并发量的网站系统架构来说，除了硬件上使用高 性能的服务器、负载均衡、CDN等之外，在软件架构上需要重点关注下面几个环节:使用高性能的操作系统(OS)、高性能的网页服务器(Web Server)、高性能的数据库(Database)、高效率的编程语言等。
+> &emsp;&emsp;LAMP指的Linux(操作系统)、ApacheHTTP 服务器，MySQL(有时也指MariaDB，数据库软件) 和PHP(有时也是指Perl或Python) 的第一个字母，一般用来建立web应用平台。
+> &emsp;&emsp;LAMP(Linux- Apache-MySQL-PHP)网站架构是目前国际流行的Web框架，该框架包括:Linux操作系统，Apache网络服务器，MySQL数据 库，Perl、PHP或者Python编程语言，所有组成产品均是开源软件，是国际上成熟的架构框架，很多流行的商业应用都是采取这个架构，和 Java/J2EE架构相比，LAMP具有Web资源丰富、轻量、快速开发等特点，微软的.NET架构相比，LAMP具有通用、跨平台、高性能、低价格的 优势，因此LAMP无论是性能、质量还是价格都是企业搭建网站的首选平台。
+> &emsp;&emsp;对于大流量、大并发量的网站系统架构来说，除了硬件上使用高 性能的服务器、负载均衡、CDN等之外，在软件架构上需要重点关注下面几个环节:使用高性能的操作系统(OS)、高性能的网页服务器(Web Server)、高性能的数据库(Database)、高效率的编程语言等。
 
 ### PHP配置
 
@@ -25,7 +25,7 @@ tags:  centos7.3编译实现LAMP PHP配置
 
 > 查看PHP的配置文件的格式
 
-```shell
+```
 
 说明：
 注释符：较新的版本中，已经完全使用;进行注释
@@ -48,7 +48,7 @@ short_open_tag=on 			开启短标签,如<? phpinfo();?>
 
 > PHP的语言格式
 
-```shell
+```
 
 <?php
 	...phpcode...  代码段
@@ -64,7 +64,7 @@ short_open_tag=on 			开启短标签,如<? phpinfo();?>
 
 > 使用mysql扩展连接数据库的测试代码
 
-```shell
+```
 
 <?php
 $conn = mysql_connect(‘mysqlserver','username','password');
@@ -79,7 +79,7 @@ mysql_close();
 
 > Php使用mysqli扩展连接数据库的测试代码
 
-```shell
+```
 
 <?php
 $mysqli=new mysqli("mysqlserver",“username",“password");
@@ -100,7 +100,7 @@ $mysqli->close();
 
 > 实现步骤
 
-```shell
+```
 
 yum -y install httpd mariadb-server php php-mysql
 service  httpd start
@@ -124,7 +124,7 @@ service httpd reload
 
 > 实现步骤
 
-```shell
+```
 
 下载地址：
 官网：https://cn.wordpress.org/
@@ -141,7 +141,7 @@ service httpd reload
 
 #### 编译Php-xcache加速访问
 
-```shell
+```
 
 yum -y install php-devel
 下载并解压缩xcache-3.2.0.tar.bz2    #目前PHP5.5以上的还不能被xcache所支持，这里要注意
@@ -159,7 +159,7 @@ systemctl restart httpd.service
 > 为保证编译成功，请确保系统是干净的，没有同类软件正在进行服务
 > 这里进行说明编译用到的包的版本信息
 
-```shell
+```
 
 mairadb：通用二进制格式，mariadb-10.2.8
 apr-1.6.2：httpd安装的依赖包
@@ -178,7 +178,7 @@ WordPress：安装wordpress-4.8.1-zh_CN
 #### 1、源码编译Httpd2.4
 
 > 在安装httpd之前请确保已经将开发包组安装完毕，如未安装请执行命令
-```shell
+```
 	yum groupinstall "development tools"
 ```
 
@@ -189,7 +189,7 @@ WordPress：安装wordpress-4.8.1-zh_CN
 
 > 编译步骤
 
-```shell
+```
 
 #下载源码并解压，将源码下载至/usr/local/src/下
 tar xvf apr-1.6.2.tar.gz 
@@ -236,7 +236,7 @@ LISTEN     0      128         :::80               :::*   #成功启动
 > 编译步骤
 > 因之前的文档已经详细介绍二进制安装Mariadb，这里只做简单的介绍，详细请参考[《二进制安装Mariadb》](http://www.daysunshine.com/blog/2017/09/25/linux-mariadb-binary-installtion)
 
-```shell
+```
 
 #解压至指定目录
 tar xvf mariadb-10.2.8-linux-x86_64.tar.gz  -C /usr/local/
@@ -298,19 +298,19 @@ grant all on wpdb.* to test@'localhost' identified by 'centos';
 
 ```
 
-> #### 二进制编译安装Mariadb完成！
+> #### 到此二进制编译安装Mariadb完成！
 
 #### 3、PHP
 
 > 在编译PHP的时候也会依赖一些devel包，我们提前先进行安装,如在编译的过程中还提示错误请根据提示进行相应的安装
 
-```shell
+```
 	yum install libxml2-devel bzip2-devel libmcrypt-devel
 ```
 
 > 编译步骤
 
-```shell
+```
 
 #进行解压
 tar xvf php-7.1.10.tar.xz
@@ -361,7 +361,7 @@ apachectl restart
 
 #### 4、测试PHP与Mariadb连接
 
-```shell
+```
 
 #编辑测试PHP文件
 vim /app/httpd24/htdocs/index.php
@@ -380,17 +380,18 @@ vim /app/httpd24/htdocs/index.php
 	phpinfo();
 ?>
 
-#在浏览器当中进行访问测试，查看是否成功
+```
+> 在浏览器当中进行访问测试，查看是否成功
 
 ![PHP与Mariadb连接测试](/assets/pictures/php-mariadb-test.png)
 
-```
+
 
 #### 5、配置WordPress
 
 > 
 
-```shell
+```
 
 #解压缩WordPress博客程序到网页站点目录下
 tar xvf wordpress-4.8.1-zh_CN.tar.gz  -C /app/httpd24/htdocs
@@ -409,20 +410,20 @@ setfacl -R -m u:apache:rwx wordpress
 > 通过浏览器登录http://172.18.18.10/blog
 > 填写必要的信息如图所示
 
-![填写信息](assets/pictures/localdenglu.png)
+![填写信息](/assets/pictures/localdenglu.png)
 
 > 账户密码的设定
 
-![登录设置](assets/pictures/denglusetting.png)
+![登录设置](/assets/pictures/denglusetting.png)
 
 > 设定成功提示
 
-![设定成功](assets/pictures/success.png)
+![设定成功](/assets/pictures/success.png)
 
 > 通过ab命令来进行压力测试
 ab -c 10 -n 100 http://172.18.18.10/blog/
 
-```shell
+```
 ...
 部分省略
 Total transferred:      5228000 bytes
@@ -437,73 +438,3 @@ Transfer rate:          621.32 [Kbytes/sec] received
 ```
 
 #### 至此centos7.3编译安装LAMP并实现WordPress完成，如有错误还望批评指正，敬请谅解！
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
