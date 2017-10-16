@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  LAMP
-date:   2017-10-11 08:00:00
+title:  LAMP平台搭建
+date:   2017-10-11 08:00:00
 categories: Linux 
 tags:  centos7.3编译实现LAMP PHP配置
 ---
