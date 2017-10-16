@@ -163,15 +163,20 @@ service named restart
 > 通过命令links进行访问测试
 > 测试页面如下：
 > (1)WEB1
-![测试成功页面](/asset/pictures/mini-lamp/success1.png)
+
+![测试成功页面](/assets/pictures/mini-lamp/success1.png)
+
 > (2)WEB2
-![测试成功页面](/asset/pictures/mini-lamp/success2.png)
+
+![测试成功页面](/assets/pictures/mini-lamp/success2.png)
 
 > 通过以上两次连续的测试可以发现，DNS能够通过DNS的轮巡来进行对流量的分流从而达到负载均衡的目的
 
 > 浏览器当中访问http://www.yan.com/blog/
 > 出现以下页面
-![登录测试页面](/asset/pictures/mini-lamp/ready.png)
+
+![登录测试页面](/assets/pictures/mini-lamp/ready.png)
+
 > 表示设置成功，后续的详细操作可以参照本站点的博客 [《LAMP》](http://www.daysunshine.com/blog/)
 
 > #### 至此基于lamp，通过DNS的轮巡实现负载均衡完毕，如有错误还望批评指正，敬请谅解! 
