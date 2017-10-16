@@ -178,7 +178,7 @@ service named restart
 
 ![登录测试页面](/assets/pictures/mini-lamp/ready.png)
 
-> 表示设置成功，后续的详细操作可以参照本站点的博客 [《LAMP》](http://www.daysunshine.com/blog/)
+> 表示设置成功，后续的详细操作可以参照本站点的博客 [《LAMP》](http://www.daysunshine.com/blog/2017/10/11/linux-lamp)
 
 > #### 至此基于lamp，通过DNS的轮巡实现负载均衡完毕，如有错误还望批评指正，敬请谅解! 
 
