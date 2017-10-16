@@ -25,11 +25,11 @@ IP|作用
 172.18.18.18| Mysql服务器
 
 
-### mysql的设定
+### 1、mysql的设定
 
 > 在之前的文章进行过详细的介绍，mysql的设置，这里只介绍如何实现
 
-```shell
+```
 
 #创建数据库，并对web服务器进行授权,设定账户和密码
 mysql> create database wpdb;
@@ -37,11 +37,11 @@ mysql> grant all on wpdb.* to test@'172.18.18.%' identified by 'centos';
 
 ```
 
-### NFS的设定
+### 2、NFS的设定
 
 > 本文的NFS将WordPress放置于NFS服务器上，进行共享
 
-```shell
+```
 
 #编辑配置文件/etc/exports，添加本机共享的文件
 /app/wordpress      172.18.18.10(ro)  172.18.18.30(rw)   #本文将/app的文件进行对特定用户的共享并设定选项
@@ -67,18 +67,16 @@ exportfs -r
 	–au 停止本机所有共享
 	
 ```
+
 **注意**
 > 在实际的设定当中，通常
 
-
-
-
-#### 设定自动挂载
+#### 3、设定自动挂载
 
 > 对本文NFS来说设定自动挂载需要在两台web服务器上进行设定，步骤相同
 > 如要进行手动挂载执行mount命令即可，也可以写到/etc/fstab内，使其开机挂载
 
-```shell
+```
 
 #查看NFS服务器的共享目录
 [root@Centos6 ~]#showmount -e 172.18.18.12
@@ -96,11 +94,11 @@ service autofs restart
 
 ```
 
-### web服务器的设定
+### 4、web服务器的设定
 
 > 设定web服务器的时候,与之前的实验大体相同，只需要设定NFS挂载选项即可，以上已经完成
 
-```shell
+```
 
 #设定连接数据库的PHP测试代码，两台web服务器的设定是相同的
 vim /var/www/html/index.php
@@ -119,11 +117,11 @@ phpinfo();
 
 ```
 
-### 客户端及DNS服务器 
+### 5、客户端及DNS服务器 
 
 > 本实验将客户端和DNS服务器用同一台机器实现
 
-```shell
+```
 
 #对named.conf进行修改，使其能够对它的IP进行开放使用
 #本文只是将其进行注释，来达到目的，详细的可参照本网站的博客《DNS》
@@ -165,7 +163,7 @@ service named restart
 
 ```
 
-### 测试
+### 6、测试
 
 > 通过命令links进行访问测试
 > 测试页面如下：
