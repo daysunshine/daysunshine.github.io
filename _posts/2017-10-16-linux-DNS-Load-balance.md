@@ -162,6 +162,7 @@ service named restart
 
 > 通过命令links进行访问测试
 > 测试页面如下：
+
 > (1)WEB1
 
 ![测试成功页面](/assets/pictures/mini-lamp/success1.png)
