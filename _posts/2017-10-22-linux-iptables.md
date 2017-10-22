@@ -467,7 +467,7 @@ iptables -t nat -A POSTROUTING -s 10.0.1.0/24 ! –d 10.0.1.0/24 -j MASQUERADE  
 
 > SNAT的图示参见如下：
 
-![sant](/assets/pictures/iptables/sant.png)
+![snat](/assets/pictures/iptables/snat.png)
 
 #### DNAT 目标地址转换
 
