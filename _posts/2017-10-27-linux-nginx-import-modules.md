@@ -310,8 +310,8 @@ http {
 
 ```
 upstream httpdsrvs {   在httpdsrvs的组内，添加后端服务器的成员
-	server   192.1668.25.2:80    weight=2;
-	server	 192.1668.25.2:80    weight=1;
+	server   192.168.25.2:80    weight=2;
+	server	 192.168.25.3:80    weight=1;
 	...
 }
 
