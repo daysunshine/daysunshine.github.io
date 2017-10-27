@@ -163,7 +163,7 @@ tcp_nodelay on | off;
 
 ```
 
-**5、sendfile  on | off **
+**5、sendfile  on \| off **
 
 ```
 是否启用sendfile功能，在内核中封装报文直接发送
@@ -315,7 +315,7 @@ location / {
 > 在一次长连接上所允许请求的资源的最大数量
 > 默认为100
 
-**15、keepalive_disable none | browser ...**
+**15、keepalive_disable none \| browser ...**
 
 > 对哪种浏览器禁用长连接
 
