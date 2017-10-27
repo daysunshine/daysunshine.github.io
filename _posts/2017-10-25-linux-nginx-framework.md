@@ -6,9 +6,7 @@ categories: Linux
 tags:  nginx程序架构、框架
 ---
 
-### Nginx的程序架构
-
-#### **Nginx进程：**
+#### Nginx进程：
 
 > nginx与Apache的preform模式相同进程，为master/worker模式
 
@@ -29,15 +27,15 @@ tags:  nginx程序架构、框架
 - 常用的标准模块：
   - **HTTP modules**：ngx_http_*
 	- **ngx_http_core_modules** 	http核心功能模块（重要）
-	- **ngx_http_ssl_module** 		http信道加密模块（重要）
+	- **ngx_http_ssl_module** 	http信道加密模块（重要）
 	- **ngx_http_upstream_module** 	http定义服务器组模块（重要）
-	- **ngx_http_fastcgi|uWSGI|SCGI_module** http web api接口模块（重要）
+	- **ngx_http_fastcgi_module** http web api接口模块（重要）
 	- **ngx_http_proxy_module** 	http反向代理模块（重要）
-	- `ngx_http_gzip_module` 		http gzip压缩传输模块（较重要）
-	- `ngx_http_log_module` 		http日志模块（较重要）
+	- `ngx_http_gzip_module` 	http gzip压缩传输模块（较重要）
+	- `ngx_http_log_module` 	http日志模块（较重要）
 	- `ngx_http_referer_module` 	http防盗链模块（较重要）
 	- `ngx_http_rewrite_module` 	http重定向模块（较重要）
-	- `ngx_http_access_module` 		http权限控制模块
+	- `ngx_http_access_module` 	http权限控制模块
 	- `ngx_http_auth_basic_module` 	http认证模块
 	- `ngx_http_stub_status_module` http状态模块
 	- `ngx_http_headers_module` 	http首部信息模块
