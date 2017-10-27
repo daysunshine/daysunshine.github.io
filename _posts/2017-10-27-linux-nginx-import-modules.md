@@ -17,7 +17,7 @@ tags: http_ssl http_proxy http_fastcgi http_upstream
 
 > httpd加密模块，包含了如下的选项设定
 
-**1、ssl on |off **
+**1、ssl on |off**
 > 是否开启HTTPS协议，建议用listen命令代替
 
 **2、ssl_certificate file**
