@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title:  Nginx的其它重要模块
 date:   2017-10-27 08:00:00
