@@ -123,7 +123,7 @@ proxy_set_header  X-Forwarded-For 	   $proxy_add_x_forwarded_for;
 
 ```
 
-**3、proxy_cache_path **
+**3、proxy_cache_path**
 
 > 用于设定代理缓存加速，定义可用于proxy功能的缓存
 
