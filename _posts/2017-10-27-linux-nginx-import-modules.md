@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title:  Nginx的其它重要模块
 date:   2017-10-27 08:00:00
@@ -17,7 +17,7 @@ tags: http_ssl http_proxy http_fastcgi http_upstream
 
 > httpd加密模块，包含了如下的选项设定
 
-**1、ssl on |off **
+**1、ssl on |off**
 > 是否开启HTTPS协议，建议用listen命令代替
 
 **2、ssl_certificate file**
@@ -42,15 +42,15 @@ tags: http_ssl http_proxy http_fastcgi http_upstream
 ```
 
 server {
-	listen 443 ssl;				#设定监听端口443在ssl上
+	listen 443 ssl;			#设定监听端口443在ssl上
 	server_name www.magedu.com;	#设定主机名
 	root /vhosts/ssl/htdocs;	#指定根目录的位置
 	
-	ssl on;											#是否开启ssl
-	ssl_certificate /etc/nginx/ssl/nginx.crt;		#指定证书文件位置
+	ssl on;						#是否开启ssl
+	ssl_certificate /etc/nginx/ssl/nginx.crt;	#指定证书文件位置
 	ssl_certificate_key/ etc/nginx/ssl/nginx.key;	#指定域证书文件对应的秘钥文件的位置
-	ssl_session_cache shared:sslcache:20m;			#设定为共享缓存，缓存名称为sslcache，上限为20M
-	ssl_session_timeout 10m;						#设定可以使用缓存的时间
+	ssl_session_cache shared:sslcache:20m;		#设定为共享缓存，缓存名称为sslcache，上限为20M
+	ssl_session_timeout 10m;			#设定可以使用缓存的时间
 }
 
 #创建自签名证书用于ssl测试
@@ -119,11 +119,11 @@ server {
 
 ```
 proxy_set_header  X-Real-IP自定义  $remote_addr;
-proxy_set_header  X-Forwarded-For 	   $proxy_add_x_forwarded_for;
+proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
 
 ```
 
-**3、proxy_cache_path **
+**3、proxy_cache_path**
 
 > 用于设定代理缓存加速，定义可用于proxy功能的缓存
 
@@ -165,7 +165,7 @@ proxy_cache_path /var/cache/nginx/proxy_cache  levels=1:2:2 keys_zone=proxycache
 proxy_cache proxycache;        		#指定调用缓存的名称
 proxy_cache_key $request_uri;		#指定缓存文件存放的路径
 proxy_cache_valid 200 302 301 1h;	#指定特定的页面的缓存时长
-proxy_cache_valid any 1m;			#指定特定的页面的缓存时长
+proxy_cache_valid any 1m;		#指定特定的页面的缓存时长
 
 ```
 
@@ -221,10 +221,10 @@ mysql> grant all on test.* to testuser@'%' identified by 'centos';
 2)在前端nginx服务上做以下配置：
 	location ~* \.php$ {
 		fastcgi_pass 172.18.18.10:9000; #指定后端服务器及端口
-        fastcgi_index index.php;		#指定访问文件的名称
-        fastcgi_param SCRIPT_FILENAME /app/test$fastcgi_script_name; #指定了文件所在的路径
-        include fastcgi_params;			#添加nginx里的fastcgi的配置文件fastcgi_params	
-注意：	#Nginx有两份fastcgi配置文件，分别是[fastcgi_params]和[fastcgi.conf]，它们没有太大的差异，唯一的区别是后者比前者多了一行[SCRIPT_FILENAME]的定义，因此完全可以在fastcgi内将SCRIPT_FILENAME对应的那行文件的路径先进行设定好，而后添加"include  fastcgi.conf"这段代码到location内
+        	fastcgi_index index.php;	#指定访问文件的名称
+        	fastcgi_param SCRIPT_FILENAME /app/test$fastcgi_script_name; #指定了文件所在的路径
+        	include fastcgi_params;		#添加nginx里的fastcgi的配置文件fastcgi_params	
+注意：Nginx有两份fastcgi配置文件，分别是[fastcgi_params]和[fastcgi.conf]，它们没有太大的差异，唯一的区别是后者比前者多了一行[SCRIPT_FILENAME]的定义，因此完全可以在fastcgi内将SCRIPT_FILENAME对应的那行文件的路径先进行设定好，而后添加"include  fastcgi.conf"这段代码到location内
 	…
 }
 ```
@@ -251,9 +251,9 @@ location ~* ^/(pm_status|ping)$ {
 ```
 格式：fastcgi_cache_path  path [levels=levels] [use_temp_path=on|off] keys_zone=name:size [inactive=time] [max_size=size] [manager_files=number] [manager_sleep=time] [manager_threshold=time] [loader_files=number] [loader_sleep=time] [loader_threshold=time] [purger=on|off] [purger_files=number] [purger_sleep=time] [purger_threshold=time]
 
-path 			#缓存位置为磁盘上的文件系统
+path 		#缓存位置为磁盘上的文件系统
 max_size=size	#磁盘path路径中用于缓存数据的缓存空间上限
-levels=levels：	#缓存目录的层级数量，以及每一级的目录数量，例如：levels=1:2:3
+levels=levels	#缓存目录的层级数量，以及每一级的目录数量，例如：levels=1:2:3
 
 ```
 **2、fastcgi_cache zone | off**
@@ -310,8 +310,8 @@ http {
 
 ```
 upstream httpdsrvs {   在httpdsrvs的组内，添加后端服务器的成员
-	server   192.1668.25.2:80    weight=2;
-	server	 192.1668.25.2:80    weight=1;
+	server   192.168.25.2:80    weight=2;
+	server	 192.168.25.3:80    weight=1;
 	...
 }
 
@@ -334,11 +334,11 @@ location ~ \.php$ {
 	HOSTNAME[:PORT]
 #parameters：
 	weight=number 		权重，默认为1
-	max_conns			接后端报务器最大并发活动连接数，1.11.5后支持
+	max_conns		接后端报务器最大并发活动连接数，1.11.5后支持
 	max_fails=number	失败尝试最大次数；超出此处指定的次数时，server将被标记为不可用,默认为1
 	fail_timeout=time 	后端服务器标记为不可用状态的连接超时时长，默认10s
-	backup				将服务器标记为“备用”，即所有服务器均不可用时才启用
-	down				标记为"不可用"，服务器便不再向被标记的服务器进行分配，配合ip_hash使用，实现灰度发布
+	backup			将服务器标记为“备用”，即所有服务器均不可用时才启用
+	down			标记为"不可用"，服务器便不再向被标记的服务器进行分配，配合ip_hash使用，实现灰度发布
 
 ```
 
@@ -367,8 +367,8 @@ hash $remote_addr;
 interval=time	检测的频率，默认为5秒
 fails=number	判定服务器不可用的失败检测次数；默认为1次
 passes=number	判定服务器可用的失败检测次数；默认为1次
-uri=uri			做健康状态检测测试的目标uri；默认为/
-match=NAME		健康状态检测的结果评估调用此处指定的match配置块
+uri=uri		做健康状态检测测试的目标uri；默认为/
+match=NAME	健康状态检测的结果评估调用此处指定的match配置块
 注意：仅对nginx plus有效
 
 ```
