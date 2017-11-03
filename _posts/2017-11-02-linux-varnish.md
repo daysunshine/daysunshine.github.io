@@ -379,11 +379,11 @@ sub vcl_deliver {
 
 > 第一次访问，响应报文
 
-![miss](/assets/pictures/varnish/miss-message)
+![miss](/assets/pictures/varnish/miss-message.png)
 
 > 在此刷新，响应报文
 
-![hit](/assets/pictures/varnish/hit-message)
+![hit](/assets/pictures/varnish/hit-message.png)
 
 
 #### 2、强制对某类请求资源不检查缓存
