@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title:  varnish详解及应用的实现
 date:   2017-11-02 08:00:00
