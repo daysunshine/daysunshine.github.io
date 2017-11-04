@@ -126,7 +126,7 @@ su - Tomcat -c 'catalina.sh start'
 - `.rar`：资源适配器类打包文件；
 - `.ear`：企业级webapp；
 
-> 部分摘自[http://www.yulongjun.com/linux/20170830-02-Tomcat-manage/](http://www.yulongjun.com/linux/20170830-02-Tomcat-manage/)
+> 部分摘自[http://www.yulongjun.com/linux/20170830-02-tomcat-manage/](http://www.yulongjun.com/linux/20170830-02-tomcat-manage/)
 
 
 ### 配置文件的详解
