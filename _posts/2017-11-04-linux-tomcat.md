@@ -68,7 +68,7 @@ systemctl start Tomcat
 
 > 浏览器打开http://Tomcat_ip:8080/
 
-![Tomcat-test](/assets/pictures/Tomcat/test.png)
+![Tomcat-test](/assets/pictures/tomcat/test.png)
 
 > 手动安装
 
@@ -353,7 +353,7 @@ Engine容器中可以包含Realm、Host、Listener和Valve子容器。
 
 浏览器访问www.a.com:8080即可访问到这个页面
 
-![helloworld](/assets/pictures/Tomcat/helloworld.png)
+![helloworld](/assets/pictures/tomcat/helloworld.png)
 
 
 #### 7、`Context组件`
@@ -531,38 +531,4 @@ proxy_ajp_module代理配置示例：
 
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#### 至此tomcat已介绍完毕，如有错误，望批评指正，敬请谅解!
