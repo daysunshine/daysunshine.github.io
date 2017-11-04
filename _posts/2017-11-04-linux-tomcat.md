@@ -185,10 +185,10 @@ name：此服务的名称，默认为Catalina；
 > Tomcat应该考虑工作情形并为相应情形下的请求分别定义好需要的连接器才能正确接收来自于客户端的请求。一个引擎可以有一个或多个连接器，以适应多种请求方式。
 
 > 定义连接器可以使用多种属性，有些属性也只适用于某特定的连接器类型。一般说来，常见于server.xml中的连接器类型通常有4种：
-- 1) HTTP连接器
-- 2) SSL连接器
-- 3) AJP 连接器
-- 4) proxy连接器
+- (1) HTTP连接器
+- (2) SSL连接器
+- (3) AJP 连接器
+- (4) proxy连接器
 
 > `server.xml中定义的HTTP连接器`
 
@@ -233,14 +233,14 @@ name：此服务的名称，默认为Catalina；
  
 > 上面定义连接器时可以配置的属性非常多，但通常定义HTTP连接器时必须定义的属性只有“port”，定义AJP连接器时必须定义的属性只有"protocol"，因为默认的协议为HTTP。
 > 以下为常用属性的说明：
-	- 1) address：指定连接器监听的地址，默认为所有地址，即0.0.0.0；
-	- 2) maxThreads：支持的最大并发连接数，默认为200；
-	- 3) port：监听的端口，默认为0；
-	- 4) protocol：连接器使用的协议，默认为HTTP/1.1，定义AJP协议时通常为AJP/1.3；
-	- 5) redirectPort：如果某连接器支持的协议是HTTP，当接收客户端发来的HTTPS请求时，则转发至此属性定义的端口；
-	- 6) connectionTimeout：等待客户端发送请求的超时时间，单位为毫秒，默认为60000，即1分钟；
-	- 7) enableLookups：是否通过request.getRemoteHost()进行DNS查询以获取客户端的主机名；默认为true,一般将其关闭以便能够提高响应速度
-	- 8) acceptCount：设置等待队列的最大长度；通常在Tomcat所有处理线程均处于繁忙状态时，新发来的请求将被放置于等待队列中；
+	- (1) address：指定连接器监听的地址，默认为所有地址，即0.0.0.0；
+	- (2) maxThreads：支持的最大并发连接数，默认为200；
+	- (3) port：监听的端口，默认为0；
+	- (4) protocol：连接器使用的协议，默认为HTTP/1.1，定义AJP协议时通常为AJP/1.3；
+	- (5) redirectPort：如果某连接器支持的协议是HTTP，当接收客户端发来的HTTPS请求时，则转发至此属性定义的端口；
+	- (6) connectionTimeout：等待客户端发送请求的超时时间，单位为毫秒，默认为60000，即1分钟；
+	- (7) enableLookups：是否通过request.getRemoteHost()进行DNS查询以获取客户端的主机名；默认为true,一般将其关闭以便能够提高响应速度
+	- (8) acceptCount：设置等待队列的最大长度；通常在Tomcat所有处理线程均处于繁忙状态时，新发来的请求将被放置于等待队列中；
 
 
 
@@ -312,9 +312,9 @@ Engine容器中可以包含Realm、Host、Listener和Valve子容器。
 ```
 
 > 常用属性说明：
-	- 1) appBase：此Host的webapps目录，即存放非归档的web应用程序的目录或归档后的WAR文件的目录路径；可以使用基于$CATALINA_HOME的相对路径；
-	- 2) autoDeploy：在Tomcat处于运行状态时放置于appBase目录中的应用程序文件是否自动进行deploy；默认为true；
-	- 3) unpackWars：在启用此webapps时是否对WAR格式的归档文件先进行展开；默认为true；
+	- (1) appBase：此Host的webapps目录，即存放非归档的web应用程序的目录或归档后的WAR文件的目录路径；可以使用基于$CATALINA_HOME的相对路径；
+	- (2) autoDeploy：在Tomcat处于运行状态时放置于appBase目录中的应用程序文件是否自动进行deploy；默认为true；
+	- (3) unpackWars：在启用此webapps时是否对WAR格式的归档文件先进行展开；默认为true；
 
 > 在实际当中直接将由程序员交由我们的war文件直接添加至webapps下即可，会自动进行部署
  
