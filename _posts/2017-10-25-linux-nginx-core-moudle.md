@@ -19,7 +19,7 @@ http {
                       '$status $body_bytes_sent "$http_referer" '
                       '"$http_user_agent" "$http_x_forwarded_for"';
     
-	# 定义日志路径和使用的日志格式（用上面定义的别名）
+    # 定义日志路径和使用的日志格式（用上面定义的别名）
     access_log  /var/log/nginx/access.log  main;
    
     sendfile            on;    # sendfile零拷贝
@@ -29,17 +29,17 @@ http {
     types_hash_max_size 2048;
 	
     include             /etc/nginx/mime.types;     # 支持的MIME类型文件
-    default_type        application/octet-stream;  # 
+    default_type        application/octet-stream;  
     
-	# Load modular configuration files from the /etc/nginx/conf.d directory.
+    # Load modular configuration files from the /etc/nginx/conf.d directory.
     # See http://nginx.org/en/docs/ngx_core_module.html#include
     # for more information.
-    include /etc/nginx/conf.d/*.conf;  	# 载入confi.d下的子配置文件
+    include /etc/nginx/conf.d/*.conf;  	# 载入conf.d下的子配置文件
     
 server {
     listen  80 default_server;  	# 监听地址；default_server表示是设定为默认虚拟主机
-    listen  [::]:80 default_server; # ipv6的监听地址
-    server_name  _;  				# 列出所有服务器名称。
+    listen  [::]:80 default_server; 	# ipv6的监听地址
+    server_name  _;  			# 列出所有服务器名称。
     root  /usr/share/nginx/html;  	# http服务器的根目录相对于系统的路径
         
 	# Load configuration files for the default server block.
@@ -66,13 +66,13 @@ server {
 # Settings for a TLS enabled server.
     server {
         listen  443 ssl http2 default_server;   	# 端口为443，开启了ssl，协议为HTTP2.0标准，设置为默认服务器。
-        listen  [::]:443 ssl http2 default_server;  # ipv6的
-        server_name  _;  							# 服务器名字列表
-        root  /usr/share/nginx/html;  				# https服务根目录
-        ssl_certificate "/etc/pki/nginx/server.crt";# 服务器证书
+        listen  [::]:443 ssl http2 default_server;  	# ipv6的
+        server_name  _;  				# 服务器名字列表
+        root  /usr/share/nginx/html;  			# https服务根目录
+        ssl_certificate "/etc/pki/nginx/server.crt";	# 服务器证书
         ssl_certificate_key "/etc/pki/nginx/private/server.key"; # 服务器认证私钥
-        ssl_session_cache shared:SSL:1m; 			# SSL会话缓存模式为共享，时间为1分钟。
-        ssl_session_timeout  10m; 					# SSL会话超时时间10分钟
+        ssl_session_cache shared:SSL:1m; 		# SSL会话缓存模式为共享，时间为1分钟。
+        ssl_session_timeout  10m; 			# SSL会话超时时间10分钟
         ssl_ciphers HIGH:!aNULL:!MD5;
         ssl_prefer_server_ciphers on;
         
@@ -116,9 +116,9 @@ server {
 listen PORT|address[:port]| unix:/PATH/TO/SOCKET_FILE
 listen address[:port] [default_server] [ssl] [http2 | spdy] [backlog=number] [rcvbuf=size] [sndbuf=size]
 	default_server	设定为默认虚拟主机
-	ssl				限制仅能够通过ssl连接提供服务
+	ssl		限制仅能够通过ssl连接提供服务
 	backlog=number 	超过并发连接数后，新请求进入后援队列的长度
-	rcvbuf=size		接收缓冲区大小
+	rcvbuf=size	接收缓冲区大小
 	sndbuf=size 	发送缓冲区大小
 
 注意：
