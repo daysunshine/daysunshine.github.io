@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  Nginx的其它重要模块
-date:   2017-10-27 08:00:00
+title:  Nginx的其它重要模块及几种反向代理的实现
+date:   2017-10-27 08:00:00
 categories: Linux 
 tags: http_ssl http_proxy http_fastcgi http_upstream
 ---
