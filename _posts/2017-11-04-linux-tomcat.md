@@ -23,17 +23,17 @@ tags:  Tomcat
 
 **各常见组件：**
 
-1、**服务器(server)**：Tomcat的一个实例，通常一个JVM只能包含一个Tomcat实例；因此，一台物理服务器上可以在启动多个JVM的情况下在每一个JVM中启动一个Tomcat实例，每个实例分属于一个独立的管理端口。这是一个**顶级组件**。
+1、`服务器(server)`：Tomcat的一个实例，通常一个JVM只能包含一个Tomcat实例；因此，一台物理服务器上可以在启动多个JVM的情况下在每一个JVM中启动一个Tomcat实例，每个实例分属于一个独立的管理端口。这是一个**顶级组件**。
 
-2、**服务(service)**：一个服务组件通常包含一个引擎和与此引擎相关联的一个或多个连接器。给服务命名可以方便管理员在日志文件中识别不同服务产生的日志。一个server可以包含多个service组件，但通常情下只为一个service指派一个server。
+2、`服务(service)`：一个服务组件通常包含一个引擎和与此引擎相关联的一个或多个连接器。给服务命名可以方便管理员在日志文件中识别不同服务产生的日志。一个server可以包含多个service组件，但通常情下只为一个service指派一个server。
 
-3、**连接器(connectors)**：负责连接客户端（可以是浏览器或Web服务器）请求至Servlet容器内的Web应用程序，通常指的是接收客户发来请求的位置及服务器端分配的端口。默认端口通常是HTTP协议的8080，管理员也可以根据自己的需要改变此端口。还可以支持HTTPS ，默认HTTPS端口为8443。同时也支持AJP，即（A）一个引擎可以配置多个连接器，但这些连接器必须使用不同的端口。默认的连接器是基于HTTP/1.1的Coyote。同时，Tomcat也支持**AJP**、JServ和JK2连接器。
+3、`连接器(connectors)`：负责连接客户端（可以是浏览器或Web服务器）请求至Servlet容器内的Web应用程序，通常指的是接收客户发来请求的位置及服务器端分配的端口。默认端口通常是HTTP协议的8080，管理员也可以根据自己的需要改变此端口。还可以支持HTTPS ，默认HTTPS端口为8443。同时也支持AJP，即（A）一个引擎可以配置多个连接器，但这些连接器必须使用不同的端口。默认的连接器是基于HTTP/1.1的Coyote。同时，Tomcat也支持**AJP**、JServ和JK2连接器。
 
 **容器类组件：**
 
-4、**引擎(Engine)**：引擎通是指处理请求的Servlet引擎组件，即**Catalina Servlet**引擎，它检查每一个请求的HTTP首部信息以辨别此请求应该发往哪个host或context，并将请求处理后的结果返回的相应的客户端。严格意义上来说，容器不必非得通过引擎来实现，它也可以是只是一个容器。如果Tomcat被配置成为独立服务器，默认引擎就是已经定义好的引擎。而如果Tomcat被配置为Apache Web服务器的提供Servlet功能的后端，默认引擎将被忽略，因为Web服务器自身就能确定将用户请求发往何处。一个引擎可以包含多个host组件。
+4、`引擎(Engine)`：引擎通是指处理请求的Servlet引擎组件，即**Catalina Servlet**引擎，它检查每一个请求的HTTP首部信息以辨别此请求应该发往哪个host或context，并将请求处理后的结果返回的相应的客户端。严格意义上来说，容器不必非得通过引擎来实现，它也可以是只是一个容器。如果Tomcat被配置成为独立服务器，默认引擎就是已经定义好的引擎。而如果Tomcat被配置为Apache Web服务器的提供Servlet功能的后端，默认引擎将被忽略，因为Web服务器自身就能确定将用户请求发往何处。一个引擎可以包含多个host组件。
 
-5、**主机(Host)**：主机组件类似于Apache中的虚拟主机，但在Tomcat中只支持基于FQDN的“虚拟主机”。一个引擎至少要包含一个主机组件。
+5、`主机(Host)`：主机组件类似于Apache中的虚拟主机，但在Tomcat中只支持基于FQDN的“虚拟主机”。一个引擎至少要包含一个主机组件。
 
 6、**上下文(Context)**：Context组件是最内层次的组件，它表示Web应用程序本身。配置一个Context最主要的是指定Web应用程序的根目录，以便Servlet容器能够将用户请求发往正确的位置。Context组件也可包含自定义的错误页，以实现在用户访问发生错误时提供友好的提示信息。
 
@@ -41,11 +41,11 @@ tags:  Tomcat
 
 > 这类组件通常包含于容器类组件中以提供具有管理功能的服务，它们不能包含其它组件，但有些却可以由不同层次的容器各自配置。
 
-7、**阀门(Valve)**：用来拦截请求并在将其转至目标之前进行某种处理操作，类似于Servlet规范中定义的过滤器。Valve可以定义在任何容器类的组件中。Valve常被用来记录客户端请求、客户端IP地址和服务器等信息，这种处理技术通常被称作请求转储(request dumping)。请求转储valve记录请求客户端请求数据包中的HTTP首部信息和cookie信息文件中，响应转储valve则记录响应数据包首部信息和cookie信息至文件中。
+7、`阀门(Valve)`：用来拦截请求并在将其转至目标之前进行某种处理操作，类似于Servlet规范中定义的过滤器。Valve可以定义在任何容器类的组件中。Valve常被用来记录客户端请求、客户端IP地址和服务器等信息，这种处理技术通常被称作请求转储(request dumping)。请求转储valve记录请求客户端请求数据包中的HTTP首部信息和cookie信息文件中，响应转储valve则记录响应数据包首部信息和cookie信息至文件中。
 
-8、**日志记录器(Logger)**：用于记录组件内部的状态信息，可被用于除Context之外的任何容器中。日志记录的功能可被继承，因此，一个引擎级别的Logger将会记录引擎内部所有组件相关的信息，除非某内部组件定义了自己的Logger组件。
+8、`日志记录器(Logger)`：用于记录组件内部的状态信息，可被用于除Context之外的任何容器中。日志记录的功能可被继承，因此，一个引擎级别的Logger将会记录引擎内部所有组件相关的信息，除非某内部组件定义了自己的Logger组件。
 
-9、**领域(Realm)**：用于用户的认证和授权；在配置一个应用程序时，管理员可以为每个资源或资源组定义角色及权限，而这些访问控制功能的生效需要通过Realm来实现。Realm的认证可以基于文本文件、数据库表、LDAP服务等来实现。Realm的效用会遍及整个引擎或顶级容器，因此，一个容器内的所有应用程序将共享用户资源。同时，Realm可以被其所在组件的子组件继承，也可以被子组件中定义的Realm所覆盖。
+9、`领域(Realm)`：用于用户的认证和授权；在配置一个应用程序时，管理员可以为每个资源或资源组定义角色及权限，而这些访问控制功能的生效需要通过Realm来实现。Realm的认证可以基于文本文件、数据库表、LDAP服务等来实现。Realm的效用会遍及整个引擎或顶级容器，因此，一个容器内的所有应用程序将共享用户资源。同时，Realm可以被其所在组件的子组件继承，也可以被子组件中定义的Realm所覆盖。
 
 
 ###  Tomcat的安装(centos7)
@@ -68,7 +68,7 @@ systemctl start Tomcat
 
 > 浏览器打开http://Tomcat_ip:8080/
 
-![Tomcat-test](/assets/pictures/Tomcat/test.png)
+![Tomcat-test](/assets/pictures/tomcat/test.png)
 
 > 手动安装
 
@@ -126,7 +126,7 @@ su - Tomcat -c 'catalina.sh start'
 - `.rar`：资源适配器类打包文件；
 - `.ear`：企业级webapp；
 
-> 部分摘自[http://www.yulongjun.com/linux/20170830-02-Tomcat-manage/](http://www.yulongjun.com/linux/20170830-02-Tomcat-manage/)
+> 部分摘自[http://www.yulongjun.com/linux/20170830-02-tomcat-manage/](http://www.yulongjun.com/linux/20170830-02-tomcat-manage/)
 
 
 ### 配置文件的详解
@@ -185,10 +185,10 @@ name：此服务的名称，默认为Catalina；
 > Tomcat应该考虑工作情形并为相应情形下的请求分别定义好需要的连接器才能正确接收来自于客户端的请求。一个引擎可以有一个或多个连接器，以适应多种请求方式。
 
 > 定义连接器可以使用多种属性，有些属性也只适用于某特定的连接器类型。一般说来，常见于server.xml中的连接器类型通常有4种：
-- 1) HTTP连接器
-- 2) SSL连接器
-- 3) AJP 连接器
-- 4) proxy连接器
+- (1) HTTP连接器
+- (2) SSL连接器
+- (3) AJP 连接器
+- (4) proxy连接器
 
 > `server.xml中定义的HTTP连接器`
 
@@ -233,14 +233,14 @@ name：此服务的名称，默认为Catalina；
  
 > 上面定义连接器时可以配置的属性非常多，但通常定义HTTP连接器时必须定义的属性只有“port”，定义AJP连接器时必须定义的属性只有"protocol"，因为默认的协议为HTTP。
 > 以下为常用属性的说明：
-	- 1) address：指定连接器监听的地址，默认为所有地址，即0.0.0.0；
-	- 2) maxThreads：支持的最大并发连接数，默认为200；
-	- 3) port：监听的端口，默认为0；
-	- 4) protocol：连接器使用的协议，默认为HTTP/1.1，定义AJP协议时通常为AJP/1.3；
-	- 5) redirectPort：如果某连接器支持的协议是HTTP，当接收客户端发来的HTTPS请求时，则转发至此属性定义的端口；
-	- 6) connectionTimeout：等待客户端发送请求的超时时间，单位为毫秒，默认为60000，即1分钟；
-	- 7) enableLookups：是否通过request.getRemoteHost()进行DNS查询以获取客户端的主机名；默认为true,一般将其关闭以便能够提高响应速度
-	- 8) acceptCount：设置等待队列的最大长度；通常在Tomcat所有处理线程均处于繁忙状态时，新发来的请求将被放置于等待队列中；
+	- (1) address：指定连接器监听的地址，默认为所有地址，即0.0.0.0；
+	- (2) maxThreads：支持的最大并发连接数，默认为200；
+	- (3) port：监听的端口，默认为0；
+	- (4) protocol：连接器使用的协议，默认为HTTP/1.1，定义AJP协议时通常为AJP/1.3；
+	- (5) redirectPort：如果某连接器支持的协议是HTTP，当接收客户端发来的HTTPS请求时，则转发至此属性定义的端口；
+	- (6) connectionTimeout：等待客户端发送请求的超时时间，单位为毫秒，默认为60000，即1分钟；
+	- (7) enableLookups：是否通过request.getRemoteHost()进行DNS查询以获取客户端的主机名；默认为true,一般将其关闭以便能够提高响应速度
+	- (8) acceptCount：设置等待队列的最大长度；通常在Tomcat所有处理线程均处于繁忙状态时，新发来的请求将被放置于等待队列中；
 
 
 
@@ -312,9 +312,9 @@ Engine容器中可以包含Realm、Host、Listener和Valve子容器。
 ```
 
 > 常用属性说明：
-	- 1) appBase：此Host的webapps目录，即存放非归档的web应用程序的目录或归档后的WAR文件的目录路径；可以使用基于$CATALINA_HOME的相对路径；
-	- 2) autoDeploy：在Tomcat处于运行状态时放置于appBase目录中的应用程序文件是否自动进行deploy；默认为true；
-	- 3) unpackWars：在启用此webapps时是否对WAR格式的归档文件先进行展开；默认为true；
+	- (1) appBase：此Host的webapps目录，即存放非归档的web应用程序的目录或归档后的WAR文件的目录路径；可以使用基于$CATALINA_HOME的相对路径；
+	- (2) autoDeploy：在Tomcat处于运行状态时放置于appBase目录中的应用程序文件是否自动进行deploy；默认为true；
+	- (3) unpackWars：在启用此webapps时是否对WAR格式的归档文件先进行展开；默认为true；
 
 > 在实际当中直接将由程序员交由我们的war文件直接添加至webapps下即可，会自动进行部署
  
@@ -353,7 +353,7 @@ Engine容器中可以包含Realm、Host、Listener和Valve子容器。
 
 浏览器访问www.a.com:8080即可访问到这个页面
 
-![helloworld](/assets/pictures/Tomcat/helloworld.png)
+![helloworld](/assets/pictures/tomcat/helloworld.png)
 
 
 #### 7、`Context组件`
@@ -531,38 +531,4 @@ proxy_ajp_module代理配置示例：
 
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#### 至此tomcat已介绍完毕，如有错误，望批评指正，敬请谅解!
