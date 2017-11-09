@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title:  Haproxy的配置文件参数设定
 date:   2017-10-30 09:00:00
@@ -21,14 +21,14 @@ tags:  haproxy
 
 #全局设置段
 global   
-    log         127.0.0.1 local3 info	#全区日志配置 使用rsyslog的local3设备   
-    chroot      /var/lib/haproxy		#工作目录（安全）   
-    pidfile     /var/run/haproxy.pid 	#pid文件存储目录   
-    nbproc 1 							#后台进程数量    
+    log         127.0.0.1 local3 info			#全区日志配置 使用rsyslog的local3设备   
+    chroot      /var/lib/haproxy			#工作目录（安全）   
+    pidfile     /var/run/haproxy.pid 			#pid文件存储目录   
+    nbproc 1 						#后台进程数量    
     maxconn     40000					#每个进程最大并发数
     user        haproxy					#用户
     group       haproxy   				#组
-    daemon 								#后台程序模式工作
+    daemon 						#后台程序模式工作
 
 #为后面3个配置短设定默认的配置
 defaults
@@ -43,23 +43,23 @@ defaults
 listen admin_stats 
     bind 0.0.0.0:6666					#设定的监听端口
     mode http
-    log 127.0.0.1 local3 err 			#定义日志记录信息   
+    log 127.0.0.1 local3 err 				#定义日志记录信息   
     stats refresh 30s 					#HAProxy监控页面统计自动刷新时间。  
-    stats uri /haproxy-status			#设置监控页面URL路径。 http：//IP:6666/haproxy-status可查看    
-    stats realm welcome login\ Haproxy	#统计页面密码框提示信息    
+    stats uri /haproxy-status				#设置监控页面URL路径。 http：//IP:6666/haproxy-status可查看    
+    stats realm welcome login\ Haproxy			#统计页面密码框提示信息    
     stats auth admin:123456				#登录统计页面用户和密码    
     stats hide-version					#隐藏HAProxy版本信息    
     stats admin if TRUE					#设置TURE后可在监控页面手工启动关闭后端真实服务器
 
 #定义前端虚拟节点
 frontend www   
-    bind *:80							#监听端口
+    bind *:80						#监听端口
     mode http    
-    option httplog						#启用日志记录HTTP请求    
+    option httplog					#启用日志记录HTTP请求    
     option forwardfor					#启用后后端服务器可以获得客户端IP    
     option httpclose					#客户端和服务器完成一次连接请求后，HAProxy主动关闭TCP链接（优化选项）    
-    log global							#使用全局日志配置    
-    default_backend httpsrvs			#指定后端服务池（backend定义htmpool）
+    log global						#使用全局日志配置    
+    default_backend httpsrvs				#指定后端服务池（backend定义htmpool）
 
 #定义后端真实服务器
 backend httpsrvs
@@ -251,6 +251,7 @@ server sorry-server 192.168.0.23 backup
 - `rise `：连续多少次检测结果为“成功”才标记服务器为可用；默认为2
 
 > 示例：
+
 ```
 frontend myweb
     bind 192.168.20.111:443
@@ -291,7 +292,7 @@ backend https_relay
 
 > 为当前server指定cookie值，实现基于cookie的会话黏性
 
-cookie的格式：cookie <name> [ rewrite | insert | prefix ] [ indirect ] [ nocache ] [ postonly ] [ preserve ] [ httponly ] [ secure ] [ domain <domain> ]* [ maxidle <idle> ] [ maxlife <life> ]
+> cookie的格式：cookie <name> [ rewrite | insert | prefix ] [ indirect ] [ nocache ] [ postonly ] [ preserve ] [ httponly ] [ secure ] [ domain <domain> ]* [ maxidle <idle> ] [ maxlife <life> ]
 - <name>：cookie名称，用于实现持久连接
 - rewrite：重写
 - insert：插入
