@@ -224,7 +224,7 @@ backend webapp
 > 提供测试页，参照上面的设定即可
 
 > 在172.16.100.6上配置反向代理的负载均衡内容，如下所示：
-> 在/etc/httpd/ocnf.d/test.conf进行配置
+> 在/etc/httpd/conf.d/test.conf进行配置
 
 ```
 <proxy balancer://tcsrvs>
