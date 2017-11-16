@@ -194,10 +194,12 @@ ROLLBACK /* added by mysqlbinlog */;
 > Innodb引擎能够支持热备、温备及冷备，而Myisam最多能够支持到温备
 
 > 备份工具：
+
 	- `mysqldump`	全量+binlog
 	- `xtrabackup`	全量+差异+binlog全量+增量+binlog
 
 > 对于数据库的备份，不仅需要要将其存储的数据进行备份还要将一些与数据本身密切相关的参数设定一并进行备份，恢复时才能与源数据相同
+
 	- 数据
 	- 二进制日志、InnoDB的事务日志；
 	- 代码（存储过程、存储函数、触发器、事件调度器）
