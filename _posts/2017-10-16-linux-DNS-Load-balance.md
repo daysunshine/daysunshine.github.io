@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  基于LAMP实现NFS文件共享及NDS负载均衡
+title:  基于LAMP实现NFS文件共享
 date:   2017-10-16 08:00:00
 categories: Linux 
 tags:  NFS文件共享  DNS负载均衡  
