@@ -70,7 +70,7 @@ binlog_format={STATEMENT|ROW|MIXED}
 
 > 在/etc/my.cnf.d/server.cnf内的[server]下进行设定，添加命令如下
 ```
-	log_bin=/app/logs/master-log  #指定的存放位置
+	log_bin=/app/logs/master-log  #指定的存放位置，并且进行指定的目录需要mysql对其拥有权限
 ```
 > 此外在mysql的命令行中还可以进行其他的设定
 
