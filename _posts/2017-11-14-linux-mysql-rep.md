@@ -195,15 +195,15 @@ ROLLBACK /* added by mysqlbinlog */;
 
 > 备份工具：
 
-	- `mysqldump`	全量+binlog
-	- `xtrabackup`	全量+差异+binlog全量+增量+binlog
+   - `mysqldump`	全量+binlog
+   - `xtrabackup`	全量+差异+binlog全量+增量+binlog
 
 > 对于数据库的备份，不仅需要要将其存储的数据进行备份还要将一些与数据本身密切相关的参数设定一并进行备份，恢复时才能与源数据相同
 
-	- 数据
-	- 二进制日志、InnoDB的事务日志；
-	- 代码（存储过程、存储函数、触发器、事件调度器）
-	- 服务器的配置文件
+   - 数据
+   - 二进制日志、InnoDB的事务日志；
+   - 代码（存储过程、存储函数、触发器、事件调度器）
+   - 服务器的配置文件
 
 ### mysqldump
 
@@ -212,26 +212,26 @@ ROLLBACK /* added by mysqlbinlog */;
 > 命令格式：
 
 ```
-   mysqldump [OPTIONS] database [tables]   						# 备份单库，可以只备份其中的一部分表（部分备份）；
+   mysqldump [OPTIONS] database [tables]   			# 备份单库，可以只备份其中的一部分表（部分备份）；
    mysqldump [OPTIONS] --databases [OPTIONS] DB1 [DB2 DB3...]	# 备份多库；在恢复时会自动进行创建库 ,建议使用
-   mysqldump [OPTIONS] --all-databases [OPTIONS] 				# 备份所有库	
+   mysqldump [OPTIONS] --all-databases [OPTIONS] 		# 备份所有库	
 
 ```
 
 > 对于MyISAM存储引擎：支持温备，备份时要锁定表；
-	- `-x, --lock-all-tables`：锁定所有库的所有表，读锁；
-	- `-l, --lock-tables`：锁定指定库所有表；
+   - `-x, --lock-all-tables`：锁定所有库的所有表，读锁；
+   - `-l, --lock-tables`：锁定指定库所有表；
 				
 > 对于InnoDB存储引擎：支持温备和热备；
-	- 热备：`--single-transaction`：创建一个事务，基于此快照执行备份；	
-	- 温备：同上面使用的`-x`、`-l`选项
+   - 热备：`--single-transaction`：创建一个事务，基于此快照执行备份；	
+   - 温备：同上面使用的`-x`、`-l`选项
 
 > mysqldump的其它选项：
-	- `-R, --routines`：备份指定库的存储过程和存储函数；
-	- `--triggers`：	备份指定库的触发器；
-	- `-E, --events`：	备份事件调度器
-	- `--flush-logs`：	锁定表完成后，即进行二进制日志刷新滚动操作； 
-	- `--master-data[=#]`  记录二进制日志文件从哪里开始进行记录
+   - `-R, --routines`：备份指定库的存储过程和存储函数；
+   - `--triggers`：	备份指定库的触发器；
+   - `-E, --events`：	备份事件调度器
+   - `--flush-logs`：	锁定表完成后，即进行二进制日志刷新滚动操作； 
+   - `--master-data[=#]`  记录二进制日志文件从哪里开始进行记录
 		`1`：记录为`CHANGE MASTER TO`语句，此语句不被注释；
 		`2`：记录为`CHANGE MASTER TO`语句，此语句被注释；只是提供一个信息不去执行（给从服务器用的，要是只有一个主，就可以选择2注释掉，或者不写就什么也没有）
 		
