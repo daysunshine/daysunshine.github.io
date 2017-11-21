@@ -1,10 +1,10 @@
 ---
-layout: page
+layout: resume
 title: Myself
 description: 
 theme: purple
 ---
 
+### 测试页
 
-
-[pdf](/pdf/*.pdf)
+[pdf](/pdf/32Nginx.pdf)
