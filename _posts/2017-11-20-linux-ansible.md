@@ -261,7 +261,9 @@ location / {
 
 ![webtest](/assets/pictures/ansible/test.gif)
 
+> 进行查看tomcat的自动部署的服务是否成功
 
+![下发图3](/assets/pictures/ansible/war.png)
 
 
 
