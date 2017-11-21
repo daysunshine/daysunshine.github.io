@@ -263,6 +263,7 @@ location / {
 
 > 进行查看tomcat的自动部署的服务是否成功
 > 通过浏览器输入http://172.18.18.30/msm进行测试查看
+
 ![下发图3](/assets/pictures/ansible/war.png)
 
 > 当进行部署服务更新的时候将之前设定的连接重新制定即可
