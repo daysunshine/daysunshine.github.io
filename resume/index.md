@@ -10,7 +10,7 @@ theme: purple
 
 <head>
 
-  <title>超级链接的设置</title>
+  <title>kuku</title>
 
 </head>
 
@@ -18,7 +18,7 @@ theme: purple
 
 <font size="5">
 
-<a href="/*.pdf">进入列表的设置页面</a>
+<a href="/pdf">进入PDF文件夹</a>
 
 </font>
 
