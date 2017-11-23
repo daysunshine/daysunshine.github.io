@@ -18,7 +18,7 @@ theme: purple
 
 <font size="5">
 
-<a href="../pdf">进入PDF文件夹</a>
+<a href="https://github.com/daysunshine/daysunshine.github.io/tree/master/pdf" alt="pdf">进入PDF文件夹</a>
 
 </font>
 
