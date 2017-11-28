@@ -131,9 +131,9 @@ halt       7
 > 我们看到awk配合printf将用户名称从root到halt的行及对应的ID号打印出来，并且在输出时比较方便，美观
 
 > - (4)BEGIN/END:执行前运行一次或结束前运行一次
-> BEGIN：让用户指定在第一条输入记录被处理之前所发生的动作，通常可在这里设置全局变量。
-> END：让用户在最后一条输入记录被读取之后发生的动作。
-> awk -F : 'BEGIN {print "user         id"}{printf "%-10s %d\n", $1,$3}END{print "end"}' /etc/passwd
+> - BEGIN：让用户指定在第一条输入记录被处理之前所发生的动作，通常可在这里设置全局变量。
+> - END：让用户在最后一条输入记录被读取之后发生的动作。
+> - awk -F : 'BEGIN {print "user          id"}{printf "%-10s %d\n", $1,$3}END{print "end"}' /etc/passwd
 
 ```
 
