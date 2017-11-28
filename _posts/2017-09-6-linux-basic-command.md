@@ -80,8 +80,8 @@ byebye				# 打印END中的内容
 > - 空模式: 匹配任意输入行
 
 > - (1)/regular expression/：仅处理能够模式匹配到的行，需要用/ /括起来
-> &emsp;&emsp;	awk '/^UUID/{print $1}' /etc/fstab
-> &emsp;&emsp;	awk '!/^UUID/{print $1}' /etc/fstab
+> awk '/^UUID/{print $1}' /etc/fstab
+> awk '!/^UUID/{print $1}' /etc/fstab
 
 ```
 
@@ -96,8 +96,8 @@ UUID=97172ba1-b115-4e5a-b739-8f2b2b309115
 > 命令将包含UUID的行找到并显示出来
 
 > - (2)expression: 关系表达式，结果为“真”才会被处理
-> &emsp;&emsp; 真：结果为非0值，非空字符串
-> &emsp;&emsp; 假：结果为空字符串或0值
+> 真：结果为非0值，非空字符串
+> 假：结果为空字符串或0值
 > 如：$1 ~ /root/ 或 $1 == "wang"，用运算符~(匹配)和!~(不匹配)。
 > awk '!0{print $1}' /etc/issue 
 
@@ -111,8 +111,8 @@ Kernel
 上面命令!0条件为真，才会执行{print $1}，反之同样道理0或条件为假则不会执行{action}
 
 > - (3)/pat1/,/pat2/ 不支持直接给出数字
-> &emsp;&emsp;awk -F: '/^root\>/,/^nobody\>/{print $1}'/etc/passwd
-> &emsp;&emsp;awk -F: '(NR>=10&&NR<=20){print NR,$1}'/etc/passwd
+> awk -F: '/^root\>/,/^nobody\>/{print $1}'/etc/passwd
+> awk -F: '(NR>=10&&NR<=20){print NR,$1}'/etc/passwd
 
 ``` 
 
@@ -131,8 +131,8 @@ halt       7
 > 我们看到awk配合printf将用户名称从root到halt的行及对应的ID号打印出来，并且在输出时比较方便，美观
 
 > - (4)BEGIN/END:执行前运行一次或结束前运行一次
-> &emsp;&emsp;BEGIN：让用户指定在第一条输入记录被处理之前所发生的动作，通常可在这里设置全局变量。
-> &emsp;&emsp;END：让用户在最后一条输入记录被读取之后发生的动作。
+> BEGIN：让用户指定在第一条输入记录被处理之前所发生的动作，通常可在这里设置全局变量。
+> END：让用户在最后一条输入记录被读取之后发生的动作。
 > awk -F : 'BEGIN {print "user         id"}{printf "%-10s %d\n", $1,$3}END{print "end"}' /etc/passwd
 
 ```
@@ -322,8 +322,8 @@ awk /etc/fstab
 
 **自定义变量(区分字符大小写)**
 
-> &emsp;&emsp;(1) -v var=value
-> &emsp;&emsp;(2) 在program中直接定义
+> (1) -v var=value
+> (2) 在program中直接定义
 
 ```
 
@@ -503,7 +503,7 @@ ymd             500
 	
 > 因此，要判断某数据组中是否存在某元素，需要使用index in array的方式
 > 要遍历数组中的每一个元素，需要使用如下的特殊结构：
-> &emsp;&emsp;	for (var in array) { statement1, ... }
+> for (var in array) { statement1, ... }
 **其中，var用于引用数组下标，而不是元素值**
 
 ```
@@ -633,7 +633,7 @@ BEGIN{a=3;b=2;print max(a,b)}
 
 > ####  if-else
 		
-> &emsp;&emsp; 格式：if (condition) {then-body} else {[ else-body ]}
+>  格式：if (condition) {then-body} else {[ else-body ]}
 
 **示例：**
 ```
@@ -659,7 +659,7 @@ ymd             Common User
 
 > ####  while
 
-> &emsp;&emsp; 格式:  while (condition){statement1; statment2; ...}
+> 格式:  while (condition){statement1; statment2; ...}
 
 ```
 
@@ -701,7 +701,7 @@ bin
 ```
 > **for循环还可以用来遍历数组元素：**
 
-> &emsp;&emsp; 格式： for (i in array) {statement1, statement2, ...}
+> 格式： for (i in array) {statement1, statement2, ...}
 
 ```
 # 统计/etc/passwd文件中的bash类型
