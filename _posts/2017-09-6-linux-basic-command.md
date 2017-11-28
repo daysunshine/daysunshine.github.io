@@ -59,12 +59,9 @@ byebye				# 打印END中的内容
 
 > awk的选项[options]比较简单：
 >
->  `-F fs` : 指定输入文件折分隔符，fs(field separator)是一个字符串或者是一个正则表达式，如-F:
-
+>  `-F fs` : 指定输入文件折分隔符，fs(field separator)是一字符串或者是一正则表达式，如-F:
 >  `-v var=value` : 用户定义一个变量并赋值，在awk当中可用
-
 >  `-f programfile` : 从脚本文件中读取awk命令 
-
 > 以上是awk较为常用的命令选项，还有更多选项这里不再过多介绍
 
 ## 2、awk的模式
