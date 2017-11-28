@@ -32,12 +32,12 @@ tags: awk
 
 > &emsp;&emsp; awk -F: -v var=value 'BEGIN{print hello } /root/{printf "%-15s %i\n",$1,$3} END{print byebye}' /etc/passwd
 
-```shell 
+```
 
-hello					# 打印BEGIN中的内容
+hello				# 打印BEGIN中的内容
 root            0		# 通过/root/匹配查找到的包含root的用户
 operator        11		# 通过/root/匹配查找到的包含root的用户
-byebye					# 打印END中的内容
+byebye				# 打印END中的内容
 
 ```
 
@@ -84,7 +84,7 @@ byebye					# 打印END中的内容
 > &emsp;&emsp;	awk '/^UUID/{print $1}' /etc/fstab
 > &emsp;&emsp;	awk '!/^UUID/{print $1}' /etc/fstab
 
-```shell 
+```
 
 [root@Centos6 ~]#awk '/^UUID/{print $1}' /etc/fstab
 
@@ -102,7 +102,7 @@ UUID=97172ba1-b115-4e5a-b739-8f2b2b309115
 > 如：$1 ~ /root/ 或 $1 == "wang"，用运算符~(匹配)和!~(不匹配)。
 > awk '!0{print $1}' /etc/issue 
 
-```shell 
+``` 
 
 [root@Centos6 ~]#awk '!0{print $1}' /etc/issue 
 CentOS
@@ -115,7 +115,7 @@ Kernel
 > &emsp;&emsp;awk -F: '/^root\>/,/^nobody\>/{print $1}'/etc/passwd
 > &emsp;&emsp;awk -F: '(NR>=10&&NR<=20){print NR,$1}'/etc/passwd
 
-```shell 
+``` 
 
 [root@Centos6 ~]#awk -F: '/^root\>/,/^halt\>/{printf "%-10s %d\n", $1,$3}' /etc/passwd
 
@@ -136,7 +136,7 @@ halt       7
 > &emsp;&emsp;END：让用户在最后一条输入记录被读取之后发生的动作。
 > awk -F : 'BEGIN {print "user         id"}{printf "%-10s %d\n", $1,$3}END{print "end"}' /etc/passwd
 
-```shell
+```
 
 [root@Centos6 ~]#awk -F : 'BEGIN {print "user       id"}{printf "%-10s %d\n", $1,$3}END{print "end"}' /etc/passwd
 
@@ -174,7 +174,7 @@ end
 
 > - FS :输入字段分隔符，默认为空白字符
 
-```shell
+```
 
 [root@Centos6 ~]#awk -v FS=':' '{print  $1,FS,$3}' /etc/passwd
 root : 0
@@ -190,7 +190,7 @@ dbus : 81
 
 > - OFS:输出字段分隔符，默认为空白字符
 
-```shell
+```
 
 [root@Centos6 ~]#awk -F:  -v OFS=':' '{print $1,$3}' /etc/passwd
 
@@ -207,7 +207,7 @@ rtkit:499
 
 > - RS:输入文本信息换行符，原换行符仍有效
 
-```shell
+```
 
 # 对输入的文本以空格作为一个行，进行打印
 [root@Centos6 ~]#awk -v RS=' ' '{print }' /etc/issue
@@ -226,7 +226,7 @@ an
 
 > - ORS:输出文本信息换行符，用指定符号代替换行符
 
-```shell
+```
 
 # 对输入的文本以空格作为一个行，输出文本的换行符用#号代替
 [root@Centos6 ~]#awk -v RS=' ' -v ORS='###' '{print }' /etc/issue
@@ -237,7 +237,7 @@ Kernel###\r###on###an###\m
 ```
 > - NF:字段数量
 
-```shell
+```
 
 #每个操作行中的字段数量
 [root@Centos6 ~]#awk '{print NF}' /etc/issue
@@ -248,7 +248,7 @@ Kernel###\r###on###an###\m
 ```
 > - NR:行号
 
-```shell
+```
 
 # 显示出每个操作行所对应的行号数
 [root@Centos6 ~]#awk '{print NR}' /etc/passwd
@@ -266,7 +266,7 @@ Kernel###\r###on###an###\m
 ```
 > - FNR:对输入的多个文件分别计行号数
 
-```shell
+```
 
 # 对输入的/etc/issue  /etc/passwd文件分别计行号数
 [root@Centos6 ~]#awk '{print FNR}' /etc/issue  /etc/passwd
@@ -284,7 +284,7 @@ Kernel###\r###on###an###\m
 ```
 > - FILENAME:当前文件名
 
-```shell
+```
 
 [root@Centos6 ~]#awk '{print FILENAME}' /etc/issue 
 
@@ -296,7 +296,7 @@ Kernel###\r###on###an###\m
 
 > - ARGC:命令行参数的个数
 
-```shell
+```
 
 [root@Centos6 ~]#awk '{print ARGC}' /etc/issue
 
@@ -308,7 +308,7 @@ Kernel###\r###on###an###\m
 
 > - ARGV:数组，保存命令行所给定的各参数,只有ARGV[0],ARGV[1]两个
 
-```shell
+```
 
 [root@Centos6 ~]#awk 'BEGIN{print ARGV[0],ARGV[1]}' /etc/fstab  /etc/issue
 
@@ -326,7 +326,7 @@ awk /etc/fstab
 > &emsp;&emsp;(1) -v var=value
 > &emsp;&emsp;(2) 在program中直接定义
 
-```shell
+```
 
 awk -v test='hello user' 'BEGIN{print test}'
 awk 'BEGIN{test="hello,user";print test}'
@@ -351,7 +351,7 @@ function_name (para1,para2)| 函数表达式
 ? :| 条件表达式
 in| 数组成员
 
-```shell
+```
 
 # 模式匹配后执行action
 [root@Centos6 ~]#awk -F: '$0 ~ /root/{print $1,$3}' /etc/passwd
@@ -402,7 +402,7 @@ ymd        500
 ---
 
 > 使用格式：
-```shell
+```
 	print item1, item2, ...
 ```
 **注意：**
@@ -410,7 +410,7 @@ ymd        500
 > - 2、输出的item可以为字符串或数值、当前记录的字段(如$1)、变量或awk的表达式；数值会先转换为字符串，而后再输出
 > - 3、print命令后面的item可以省略，此时其功能相当于print $0, 因此，如果想输出空白行，则需要使用print ""
 
-```shell
+```
 [root@Centos6 ~]#awk 'BEGIN { print "1\n2\n3" }'
 
 1
@@ -434,7 +434,7 @@ adm 3
 ---
 > 使用格式：(与C语言当中的printf命令基本相同)
 
-```shell
+```
 	printf format, item1, item2, ...
 ```
 
@@ -446,7 +446,7 @@ adm 3
 > **format格式的指示符都以%开头，后跟一个字符：**
 > - 格式如下
 
-```shell
+```
 
 	%c: 显示字符的ASCII码
 	%d, %i：十进制整数
@@ -467,7 +467,7 @@ adm 3
 
 > 上文列举出的例子
 
-```shell 
+``` 
 
 [root@Centos6 ~]#awk -F: '{printf "%-15s %i\n",$1,$3}' /etc/passwd
 root            0
@@ -493,7 +493,7 @@ ymd             500
 
 > 其格式为：
 
-```shell
+```
 	array[index-expression]
 ```
 
@@ -507,7 +507,7 @@ ymd             500
 > &emsp;&emsp;	for (var in array) { statement1, ... }
 **其中，var用于引用数组下标，而不是元素值**
 
-```shell
+```
 
 # 定义数组并赋值输出
 [root@Centos6 ~]#awk 'BEGIN{test[1]="one";test[2]="two";print test[1]}'
@@ -559,7 +559,7 @@ sqrt(x)| 平方根
 
 **示例**
 
-```shell
+```
 
 随机生成5个数乘以100，并对其结果取整
 [root@Centos6 ~]# awk 'BEGIN{rand(); for (i=1;i<=5;i++)print int(rand()*100) }'
@@ -578,7 +578,7 @@ sqrt(x)| 平方根
 
 > - 2、sub(r,s,"t"):对t字符串进行搜索，r为匹配的内容，并将第一个匹配到的r用s替换掉
 
-```shell
+```
 
 # sub替换第一次匹配的内容
 [root@Centos6 ~]#date "+%F"|awk 'sub(/-/,":",$0)'
@@ -591,7 +591,7 @@ sqrt(x)| 平方根
 
 > -3、split(s,array,"r"):以r为分隔符，对s字符串进行切割，并将切割好的字段结果保存到指定的array的数组中，第一个为array[1],第二个为[2],以此类推
 
-```shell
+```
 
 [root@Centos6 ~]#date "+%F"|awk 'split($0,test,"-");END{print test[0],test[1],test[2],test[3]}'
 
@@ -604,7 +604,7 @@ sqrt(x)| 平方根
 
 > 自定义函数格式：
 
-```shell
+```
 
 function name ( parameter, parameter, ... ) {
 		statements
@@ -616,7 +616,7 @@ return expression
 
 **示例：**
 
-```shell
+```
 
 #定义一个比较大小的函数 
 function max(v1,v2) {
@@ -637,7 +637,7 @@ BEGIN{a=3;b=2;print max(a,b)}
 > &emsp;&emsp; 格式：if (condition) {then-body} else {[ else-body ]}
 
 **示例：**
-```shell
+```
 
 [root@Centos6 ~]#awk -F: '{if ($3<500) {printf "%-15s  %-s\n", $1, "Admin"} else {printf "%-15s %-s\n", $1, "Common User"}}' /etc/passwd
 root             Admin
@@ -662,7 +662,7 @@ ymd             Common User
 
 > &emsp;&emsp; 格式:  while (condition){statement1; statment2; ...}
 
-```shell
+```
 
 [root@Centos6 ~]#awk -F: '{i=1;while (i<=NF) { if (length($i)<=5) {print $i}; i++ }}' /etc/passwd
 root
@@ -681,7 +681,7 @@ bin
 
 > &emsp;&emsp; 格式： do {statement1, statement2, ...} while (condition)
 
-```shell
+```
 
 # 计算1-100的和	
 [root@Centos6 ~]#awk 'BEGIN{i=1;do{sum+=i;i++}while(i<=100){print sum}}' 
@@ -693,7 +693,7 @@ bin
 
 > &emsp;&emsp; 格式： for ( variable assignment; condition; iteration process) { statement1, statement2, ...}
 		
-```shell
+```
 
 # 1-100的和
 [root@Centos6 ~]#awk 'BEGIN{for(i=0;i<=100;i++)sum+=i;print sum}'
@@ -704,7 +704,7 @@ bin
 
 > &emsp;&emsp; 格式： for (i in array) {statement1, statement2, ...}
 
-```shell
+```
 # 统计/etc/passwd文件中的bash类型
 [root@Centos6 ~]#awk -F: '$NF!~/^$/{BASH[$NF]++}END{for(A in BASH){printf "%15s:%i\n",A,BASH[A]}}' /etc/passwd
  /sbin/shutdown:1
@@ -726,7 +726,7 @@ bin
 > 提前结束```对本行文本```的处理，并接着处理下一行；
 > 例如，下面的命令将显示其ID号为奇数的用户：
 
-```shell
+```
 
 # 统计ID为奇数的用户
 [root@Centos6 ~]#awk -F: '{if($3%2==0) next;printf "%-10s %d\n", $1,$3}' /etc/passwd
