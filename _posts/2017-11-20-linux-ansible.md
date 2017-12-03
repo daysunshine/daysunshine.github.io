@@ -11,15 +11,15 @@ tags:  自动部署  ansible
 > 1、简介
 > ansible是新出现的自动化运维工具，基于python开发，集合了众多运维工具（puppet、cfengine、chef、func、fabric）的优点，实现了批量系统配置、批量程序部署、批量运行命令等功能。ansible是基于模块工作的，本身没有批量部署的能力。真正具有批量部署的是ansible所运行的模块，ansible只是提供一种框架。主要包括。
 
-- （1）、连接插件connection plugins:负责和被监控端实现通信；
+- （1）连接插件connection plugins:负责和被监控端实现通信；
 
-- （2）、host inventory:指定操作的主机，是一个配置文件里面定义监控的主机；
+- （2）host inventory:指定操作的主机，是一个配置文件里面定义监控的主机；
 
-- （3）、各种模块：核心模块、command模块、自定义模块；
+- （3）各种模块：核心模块、command模块、自定义模块；
 
-- （4）、借助于插件完成记录日志邮件等功能；
+- （4）借助于插件完成记录日志邮件等功能；
 
-- （5）、playbook:剧本执行多个任务时，非必须可以让节点一次性运行多个任务。
+- （5）playbook:剧本执行多个任务时，非必须可以让节点一次性运行多个任务。
 
 > 2、总体架构
 
@@ -55,7 +55,7 @@ tags:  自动部署  ansible
 │       └── memcached.j2
 └── tomcat				与tomcat有关的设定目录
     ├── files
-    │   ├── javolution-5.5.1.jar					*.jar与设定msm的相关的依赖包
+    │   ├── javolution-5.5.1.jar			*.jar与设定msm的相关的依赖包
     │   ├── memcached-session-manager-1.8.2.jar
     │   ├── memcached-session-manager-tc7-1.8.2.jar
     │   ├── msm-javolution-serializer-1.8.2.jar
@@ -98,11 +98,11 @@ tags:  自动部署  ansible
 - name: tomcat directory			创建tomcat的测试文件
   file: path=/usr/local/tomcat/webapps/test/WEB-INF state=directory
 
-- name: apply apps					添加测试的web服务
+- name: apply apps				添加测试的web服务
   copy: src=msm-sample-webapp-1.0-SNAPSHOT.war dest=/var/lib/tomcat/webapps/ owner=tomcat group=tomcat
   notify: restart tomcat
 
-- name: link						对上面SNAPSHOT.war自动创建连接
+- name: link					对上面SNAPSHOT.war自动创建连接
   file: path=/var/lib/tomcat/webapps/msm src=/var/lib/tomcat/webapps/msm-sample-webapp-1.0-SNAPSHOT state=link 
 
 - name: tomcat test page			调用模板设定测试文件
