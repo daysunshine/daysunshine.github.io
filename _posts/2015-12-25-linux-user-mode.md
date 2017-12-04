@@ -112,7 +112,7 @@ groupmod [options] group
 groupdel :删除组，若删除的组为其他组的主组则不能删除。
 ```
 
-####(5)passwd 修改指定用户的密码
+#### (5)passwd 修改指定用户的密码
 
 ```
 passwd [options] username 
