@@ -6,7 +6,7 @@ categories: Linux
 tags:  用户、权限
 ---
 
-###1、用户和组的配置文件
+### 1、用户和组的配置文件
 
 > 在Linux中用户和组的配置文件主要为：
   - /etc/passwd  :存放用户及其属性的信息（名称、GID、UID）
@@ -14,14 +14,14 @@ tags:  用户、权限
   - /etc/shadow  :存放用户密码及其相关属性
   - /etc/gshadow :存放组密码及其相关属性
   
-####(1)、/etc/passwd的格式
+#### (1)、/etc/passwd的格式
 
 ```
 root:x:0:0:root:/root:/bin/bash 
 分别表示为：用户名 ：密码 : UID : GID : 描述信息 : 家目录 : shell类型
 ```
 
-####(2)、/etc/shadow的格式
+#### (2)、/etc/shadow的格式
 
 ```
 root::17361:0:99999:7:::
@@ -35,15 +35,15 @@ $6$1C6dXZDTp.Kccbji$8K.gFoDfNtFONEoWV5I9s87Fun6kw2NSlQqIEsrNblzrfSydSXQ9We3MW/6O
 在密码最前面如有"!"则代表账户被锁定，不能登录
 eg：tcpdump:!!:17361::::::
 
-####(3)、/etc/groupd的格式
+#### (3)、/etc/groupd的格式
 
 ```
 root:x:0:
 分别表示为：用户名 : 组密码(X表示) : GID : 附加组
 ```
-###2、用户和组的相关命令
+### 2、用户和组的相关命令
 
-####(1)useradd 添加用户
+#### (1)useradd 添加用户
 
 ```
 useradd  [options]  username
@@ -61,7 +61,7 @@ useradd  [options]  username
 /etc/login.defs目录下为用户登录时的属性默认设置，可通过更改文件设定来改变包括用户有效期、UID、GID以及加密算法等在内的配置信息
 ```
 
-####(2)usermod 用户属性修改
+#### (2)usermod 用户属性修改
 
 ```
 usermod [options] username 
@@ -77,7 +77,7 @@ usermod [options] username
 	 -e YY-MM-DD :指定用户账户过期时间
 ```
 
-####(3)userdel 删除指定用户
+#### (3)userdel 删除指定用户
 
 ```
 userdel [options] username
@@ -85,7 +85,7 @@ userdel [options] username
 	 -f :强制删除
 ```
 
-####批量创建用户及更改口令
+#### 批量创建用户及更改口令
 
 ```
 1、批量创建用户
@@ -97,7 +97,7 @@ userdel [options] username
 	 执行命令cat passwd | chpasswd 将文本中的用户与密码设定成功 
 ```
 
-####(4)groupadd、groupmod、groupdel 创建组、修改组、删除组
+#### (4)groupadd、groupmod、groupdel 创建组、修改组、删除组
 
 ```
 group [options] groupname
@@ -121,7 +121,7 @@ passwd [options] username
 	 --stdin :接受标准输入
 ```
 
-####(6)gpasswd 更改组密码
+#### (6)gpasswd 更改组密码
 
 ```
 gpasswd [options] group 
@@ -130,7 +130,7 @@ gpasswd [options] group
 	 -A username:设置有管理权限的列表
 ```
 
-####(7)groupmems 
+#### (7)groupmems 
 
 ```
 groupmems [options] 
@@ -141,10 +141,10 @@ groupmems [options]
 	 -l :显示组列表
 ```
 
-###3、文件权限属性
+### 3、文件权限属性
     再打开文件和目录时显示其详细信息如下：
 ```
-####(1)文件属性信息
+#### (1)文件属性信息
 -rw-r--r--. 1 root mage 1738 Jul 19 19:18 /etc/passwd
 其中：
 第一位是文件的类型：
@@ -169,7 +169,7 @@ rw-r--r--为文件的权限：r(读)、w(写)、x(执行)、-(无)
 /etc/passwd          :为其文件路径
 ```
 
-####(2)属性更改          					 
+#### (2)属性更改          					 
 
 ```
 chown 设置文件的属主、属组
@@ -187,11 +187,11 @@ chmod 设置文件的权限属性
 			   a 所有(all)
 	 [mode]  : r、w、x、X(作用在目录上，配合-R使用会将目录下的除文件以外的目录加上x执行权限)
 eg : chmod u+rw  file 将file文件加上rw权限
-*注意：Linux系统对于目录中的文件来说，文件能否被用户删除与文件本身的权限无关，
+注意：Linux系统对于目录中的文件来说，文件能否被用户删除与文件本身的权限无关，
        而与文件的父目录有关，当用户访问父目录具有w(写)权限时才能够将文件删除	   
 ```
 
-####(3)特殊权限 suid、sgid、sticky
+#### (3)特殊权限 suid、sgid、sticky
 
 ```
 suid (作用在可执行的二进制文件上): 访问者会继承文件所有者的权限
@@ -210,7 +210,7 @@ eg :
 -rw-r-xr-t. 1 root root  1664 Jul 19 02:57 passwd  为passwd文件加上sticky权限
 ```
 
-####(4)访问控制列表(ACL)
+#### (4)访问控制列表(ACL)
 
 ```
     在现实的生产中我们通过更改权限的命令只能设定群体的用户，但是我们却想要特定的文件只能某个用户访问或者拒绝其访问
