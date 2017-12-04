@@ -34,7 +34,7 @@ $6$1C6dXZDTp.Kccbji$8K.gFoDfNtFONEoWV5I9s87Fun6kw2NSlQqIEsrNblzrfSydSXQ9We3MW/6O
  
 在密码最前面如有"!"则代表账户被锁定，不能登录
 eg：tcpdump:!!:17361::::::
-
+```
 #### (3)、/etc/groupd的格式
 
 ```
@@ -143,9 +143,10 @@ groupmems [options]
 ```
 
 ### 3、文件权限属性
-    再打开文件和目录时显示其详细信息如下：
-```
+> 再打开文件和目录时显示其详细信息如下：
+
 #### (1)文件属性信息
+```
 -rw-r--r--. 1 root mage 1738 Jul 19 19:18 /etc/passwd
 其中：
 第一位是文件的类型：
