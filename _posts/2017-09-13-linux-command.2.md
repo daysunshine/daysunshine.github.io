@@ -3,7 +3,7 @@ layout: post
 title:  SSH相关应用
 date:   2017-09-13 08:00:00
 categories: Linux 
-tags:   pssh  密钥认证  端口转发
+tags:   pssh  密钥认证  端口转发 秘钥分发脚本
 ---
 
 
@@ -473,37 +473,27 @@ Last login: Tue Sep 12 09:53:14 2017 from 172.18.18.17
 > - curl --sockes5 127.0.0.1 1080   http://172.18.18.10
 
 
+#### 脚本实现秘钥的分发
+> 以下列出实现脚本分发的脚本
+> 可根据实际的情况进行IP的更改即可
 
+```
+#!/bin/bash
+
+#make key
+\rm -f /root/.ssh/id_dsa
+ssh-keygen -t rsa -f /root/.ssh/id_dsa -P "" -q
+
+#send pub key 
+for ip in 10 15 30;do
+        echo ====send key to host 172.18.18.$ip====
+                sshpass -p123456 ssh-copy-id -i /root/.ssh/id_dsa.pub "-o StrictHostKeyChecking=no ro
+ot@172.18.18.$ip"
+        echo ===============send end==============
+        echo ""
+done
+
+```
 
 > #### **&emsp;&emsp;以上就是ssh相关的全部内容，由于本片文章是基于部分操作写成的，难免有不足及错误的地方，敬请谅解！**
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
