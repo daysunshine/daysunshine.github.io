@@ -486,10 +486,10 @@ ssh-keygen -t rsa -f /root/.ssh/id_dsa -P "" -q
 
 #send pub key 
 for ip in 10 15 30;do
-        echo ====send key to host 172.18.18.$ip====
+        echo "####send key to host 172.18.18.$ip####"
                 sshpass -p123456 ssh-copy-id -i /root/.ssh/id_dsa.pub "-o StrictHostKeyChecking=no ro
 ot@172.18.18.$ip"
-        echo ===============send end==============
+        echo "#####send pubkey end######"
         echo ""
 done
 
