@@ -82,8 +82,8 @@ tags:  自动部署  ansible
   yum: name=java-1.8.0-openjdk state=present
 
 - name: install tomcat		安装tomcat
-  yum: name={{ item }}  state=present
-  with_items: 
+  yum: name={{item}}  state=present    #name 后的item没有显示出来
+  with_items: 
   - tomcat
   - tomcat-lib
   - tomcat-webapps
