@@ -27,7 +27,7 @@ tags: Jenkins maven svn
 
 ![jenkins-yuanli](/assets/pictures/jenkins/jenkins-yuanli.png)
 
-### 基于Jenkins、Maven及SVN实现持续集成
+## 基于Jenkins、Maven及SVN实现持续集成
 
 > 1、基础环境
 
@@ -36,11 +36,13 @@ tags: Jenkins maven svn
 > 安装的步骤
 
  > 1、安装Maven并配置
+ 
  > 2、安装并启动Jenkins
+ 
  > 3、登录Jenkins设定相关的构建配置
 
 
-#### 安装Maven
+### 安装Maven
 
 > 本文所用的maven的版本为3.5.2，[可点击此处下载.](http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz)
 
@@ -75,7 +77,7 @@ PATH=$PATH:$MAVEN_HOME/bin
 > 3、测试是否安装成功
 
 ```
-[root@centos6 ~]#mvn -v
+[root@centos6 ~]# mvn -v
 Apache Maven 3.5.2 (138edd61fd100ec658bfa2d307c43b76940a5d7d; 2017-10-18T15:58:13+08:00)
 Maven home: /root/maven
 Java version: 1.8.0_144, vendor: Oracle Corporation
@@ -85,7 +87,7 @@ OS name: "linux", version: "2.6.32-696.el6.x86_64", arch: "amd64", family: "unix
 
 ```
 
-#### 安装及配置Jenkins
+### 安装及配置Jenkins
 
 > 本文Jenkins的版本为jenkins-2.89.3-1.1，[可点击此处下载](https://pkg.jenkins.io/redhat-stable/jenkins-2.89.3-1.1.noarch.rpm)
 
@@ -106,12 +108,10 @@ rpm -ivh  jenkins-2.89.3-1.1.noarch.rpm
 
 ![jenkins](/assets/pictures/jenkins/jenkins(1).png)
 
-
 > 安装默认插件
 
 ![jenkins](/assets/pictures/jenkins/jenkins(2).png)
 ![jenkins](/assets/pictures/jenkins/jenkins(3).png)
-
 > 2、安装成功登录后安装必要插件
 - (1)  Maven Integration plugin
 - (2)  Deploy to container Plugin
@@ -141,7 +141,7 @@ vim  maven/conf/settings.xml
 ![jenkins](/assets/pictures/jenkins/jenkins(7).png)
 
 
-#### 构建Jenkins自动部署
+### 构建Jenkins自动部署
 
 > 点击左侧的`"构建"`来进行构建项目，如图
 
@@ -174,7 +174,7 @@ vim  maven/conf/settings.xml
 > 点击下方进行保存并应用
 
 
-#### 构建测试
+### 构建测试
 
 > 点击 "立即构建"-->下方构建编号(或进度条)-->Console Output查看构建详细信息
 
@@ -186,7 +186,7 @@ vim  maven/conf/settings.xml
 ![jenkins](/assets/pictures/jenkins/jenkins(16).png)
 
 
-#### 配置Jenkins自动发布
+### 配置Jenkins自动发布
 
 > 增加构建步骤，将maven打包好的项目自动部署至tomcat/webapps下
 > 测试构建成功后，点击项目名称，进入"配置"模块中在最后增加一部构建后的操作，将打好的war包发送至指定的目录下
@@ -224,7 +224,7 @@ vim TOMCAT_HOME/conf/tomcat-users.xml
 > 通过时间的对比可以看到项目已经更新了
 
 
-### Jenkins的安装部署已完成，本文如有错误还望批评指正！
+## Jenkins的安装部署已完成，本文如有错误还望批评指正！
 
 
 
