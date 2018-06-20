@@ -44,7 +44,7 @@ tags: Jenkins maven svn
 
 ### 安装Maven
 
-> 本文所用的maven的版本为3.5.2，[可点击此处下载.](http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz)
+> 本文所用的maven的版本为3.5.3，[可点击此处下载.](http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.tar.gz)
 
 > 1、下载完成后进行解压并重命名
 
